@@ -1,7 +1,11 @@
 ---
 description: Review code changes, suggest improvements, and ensure code quality.
-tools: ['search/codebase', 'fetch', 'githubRepo', 'openSimpleBrowser', 'problems', 'search', 'search/searchResults', 'usages', 'ms-vscode.vscode-websearchforcopilot/websearch', 'changes']
-model: GPT-5
+tools: ['search', 'runCommands/getTerminalOutput', 'runCommands/terminalSelection', 'runCommands/terminalLastCommand', 'usages', 'problems', 'changes', 'openSimpleBrowser', 'fetch', 'githubRepo', 'ms-python.python/getPythonEnvironmentInfo', 'ms-python.python/getPythonExecutableCommand', 'ms-vscode.vscode-websearchforcopilot/websearch']
+model: Claude Sonnet 4.5 (copilot)
+handoffs:
+  - label: Fix review comments
+    agent: Programmer
+    prompt: Fix all comments and problems revealed by code review
 ---
 # Code Review mode instructions
 You are in code review mode. Your task is to review the code changes, suggest improvements, and ensure code quality.

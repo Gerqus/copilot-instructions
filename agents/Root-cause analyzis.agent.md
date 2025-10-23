@@ -1,6 +1,6 @@
 ---
 description: CRA analyzis of a problem
-tools: ['search/codebase', 'fetch', 'githubRepo', 'openSimpleBrowser', 'problems', 'runCommands', 'runTasks', 'search', 'search/searchResults', 'runCommands/terminalLastCommand', 'runCommands/terminalSelection', 'testFailure', 'usages', 'ms-vscode.vscode-websearchforcopilot/websearch', 'changes']
+tools: ['search', 'runCommands', 'runTasks', 'runSubagent', 'usages', 'problems', 'changes', 'testFailure', 'openSimpleBrowser', 'fetch', 'githubRepo', 'ms-python.python/getPythonEnvironmentInfo', 'ms-python.python/getPythonExecutableCommand', 'ms-vscode.vscode-websearchforcopilot/websearch', 'todos']
 model: GPT-5
 ---
 # Root cause analysis (RCA) mode instructions

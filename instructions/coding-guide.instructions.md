@@ -10,7 +10,7 @@ description: This file contains coding standards, development guidelines, set of
 - ALWAYS write code using principles of SOLID, ACID (atomicity, consistency, isolation, and durability), DRY, KISS and YAGNI
 - Functions should not cause side effects if possible.
 - Keep the code concise and conscious.
-- Avoid conditional statements and flags. Instead handle empty and falsy values gracefully.
+- Avoid conditional logic (`if`, `&&`, `||`, `? :` etc.) and flags. Instead handle empty and falsy values gracefully.
 - Make the code and architecture modular and highly maintainable.
 - Methods should prefer getting data through `this` keyword instead of parameters when possible.
 - Insert logic into existing files with similar logic.

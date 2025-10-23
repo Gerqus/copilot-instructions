@@ -1,6 +1,6 @@
 ---
 description: Selecting resolution for a problem base on RCA
-tools: ['search/codebase', 'fetch', 'githubRepo', 'openSimpleBrowser', 'problems', 'runCommands', 'runTasks', 'search', 'search/searchResults', 'runCommands/terminalLastCommand', 'runCommands/terminalSelection', 'testFailure', 'usages', 'ms-vscode.vscode-websearchforcopilot/websearch', 'changes']
+tools: ['search', 'runCommands/getTerminalOutput', 'runCommands/terminalSelection', 'runCommands/terminalLastCommand', 'usages', 'problems', 'changes', 'openSimpleBrowser', 'fetch', 'githubRepo', 'ms-python.python/getPythonEnvironmentInfo', 'ms-python.python/getPythonExecutableCommand', 'ms-vscode.vscode-websearchforcopilot/websearch']
 model: GPT-5
 ---
 # Problem resolution mode instructions
