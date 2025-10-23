@@ -7,12 +7,16 @@ description: This file contains coding standards, development guidelines, set of
 - Prefer using installed packages over writing own code
 - When making changes always reuse existing functions and methods if possible.
 - Reduce boilerplate.
-- **ALWAYS write code using principles of SOLID, ACID (atomicity, consistency, isolation, and durability), DRY, KISS and YAGNI**
-- Functions should avoid side effects.
+- ALWAYS write code using principles of SOLID, ACID (atomicity, consistency, isolation, and durability), DRY, KISS and YAGNI
+- Functions should not cause side effects if possible.
+- Keep the code concise and conscious.
+- Avoid conditional statements and flags. Instead handle empty and falsy values gracefully.
+- Make the code and architecture modular and highly maintainable.
 - Methods should prefer getting data through `this` keyword instead of parameters when possible.
 - Insert logic into existing files with similar logic.
 - Use available utility functions.
-- If old methods can be replaced with new ones - replace them. If they are not used any more - remove them.
+- Refactor and reuse existing code instead of writing new code.
+- Clean the code after you are done with changes. Remove dead code, console logs, comments, unused variables and imports.
 - Keep the project tidy and organized.
 - When refactoring, keep logically connected areas together.
 - Prefer shorter files.
@@ -22,7 +26,10 @@ description: This file contains coding standards, development guidelines, set of
 - NEVER trust FrontEnd with anything - inputs, reports, identity, host. Consider it hostile environment.
 - On BackEnd always sanitize and validate all inputs coming *from FrontEnd*.
 - For each functionality maintain only one source of truth. If something is defined in one place - do not redefine it somewhere else, but reuse the original definition and derive from it.
-- centralize repetitive logic into reusable functions and methods
-- centralize repetitive functionalities into reusable services
-- try and reuse existing logic and functionalities and derive from them and bild off of them as much as possible
-- no fallbacks. Create one, robust solution that will work.
+- Centralize repetitive logic into reusable functions and methods
+- Centralize repetitive functionalities into reusable services
+- Centralize repetitive constants into reusable constant files
+- Centralize repetitive types into reusable type definition files and interfaces
+- Centralize general purpose functions into reusable utility files
+- Try and reuse existing logic and functionalities and derive from them and build off of them as much as possible
+- No fallbacks. Create one, robust solution that will work.
