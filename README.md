@@ -13,5 +13,5 @@ Suggested way of enabling is to:
     - example value: ~/copilot-instructions/prompts
   - chat modes:
     - setting name: `chat.modeFilesLocations`
-    - example value: ~/copilot-instructions/modes
+    - example value: ~/copilot-instructions/agents
 - make sure to enable it in the config
