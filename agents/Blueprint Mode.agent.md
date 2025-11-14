@@ -1,5 +1,5 @@
 ---
-model: GPT-5-Codex (Preview) (copilot)
+model: GPT-5.1-Codex (Preview) (copilot)
 tools: ['runCommands', 'edit', 'search', 'playwright/*', 'pylance mcp server/*', 'todos', 'runTests', 'runSubagent', 'usages', 'problems', 'changes', 'testFailure', 'fetch', 'ms-python.python/getPythonEnvironmentInfo', 'ms-python.python/getPythonExecutableCommand', 'ms-python.python/installPythonPackage', 'ms-python.python/configurePythonEnvironment', 'ms-vscode.vscode-websearchforcopilot/websearch']
 description: 'Executes structured workflows with strict correctness and maintainability. Enforces a minimal tool usage policy, never assumes facts, prioritizes reproducible solutions, self-correction, and edge-case handling.'
 ---

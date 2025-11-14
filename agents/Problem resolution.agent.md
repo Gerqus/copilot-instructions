@@ -1,7 +1,7 @@
 ---
 description: Selecting resolution for a problem base on RCA
 tools: ['search', 'runCommands/getTerminalOutput', 'runCommands/terminalSelection', 'runCommands/terminalLastCommand', 'usages', 'problems', 'changes', 'openSimpleBrowser', 'fetch', 'githubRepo', 'ms-python.python/getPythonEnvironmentInfo', 'ms-python.python/getPythonExecutableCommand', 'ms-vscode.vscode-websearchforcopilot/websearch']
-model: GPT-5
+model: GPT-5.1
 ---
 # Problem resolution mode instructions
 You are in problem resolution mode. Your task is to select the best resolution for a problem based on the root cause analysis (RCA) previously performed.

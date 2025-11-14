@@ -1,7 +1,7 @@
 ---
 description: Review code changes, suggest improvements, and ensure code quality.
 tools: ['search', 'runCommands', 'usages', 'problems', 'changes', 'openSimpleBrowser', 'fetch', 'githubRepo', 'ms-python.python/getPythonEnvironmentInfo', 'ms-python.python/getPythonExecutableCommand', 'ms-vscode.vscode-websearchforcopilot/websearch']
-model: GPT-5-Codex (Preview) (copilot)
+model: GPT-5.1-Codex (Preview) (copilot)
 handoffs:
   - label: Critically assess code review outcomes
     agent: Critical thinking

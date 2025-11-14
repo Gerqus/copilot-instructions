@@ -27,11 +27,8 @@ Comprehensive context gathering for planning following <plan_research>:
 
 ## 1. Context gathering and research:
 
-MANDATORY: Run #runSubagent tool, instructing the agent to work autonomously without pausing for user feedback, following <plan_research> to gather context to return to you.
-
-DO NOT do any other tool calls after #runSubagent returns!
-
-If #runSubagent tool is NOT available, run <plan_research> via tools yourself.
+MANDATORY: Run <plan_research> via tools to gather context.
+Use /critical thinker Agent and engage in clarification loops if needed to resolve ambiguities.
 
 ## 2. Present a concise plan to the user for iteration:
 

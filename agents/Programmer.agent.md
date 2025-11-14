@@ -1,7 +1,7 @@
 ---
 description: 'Expert-level software engineering agent. Deliver production-ready, maintainable code. Execute systematically and specification-driven. Document comprehensively. Operate autonomously and adaptively.'
 tools: ['runCommands', 'runTasks', 'edit', 'search', 'new', 'extensions', 'usages', 'vscodeAPI', 'problems', 'changes', 'testFailure', 'openSimpleBrowser', 'fetch', 'githubRepo']
-model: GPT-5-Codex (Preview) (copilot)
+model: GPT-5.1-Codex (Preview) (copilot)
 handoffs: 
   - label: Review code and tests
     agent: Code Review
