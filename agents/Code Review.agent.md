@@ -5,7 +5,7 @@ model: GPT-5.1-Codex (Preview) (copilot)
 handoffs:
   - label: Critically assess code review outcomes
     agent: Critical thinking
-    prompt: Critically assess the code review outcomes
+    prompt: Critically assess the code review outcomes. Pay special attention to where does given comment stem from, does the code really do or is what the comment says. Look for deeper issues and logic mistakes too.
     send: true
 ---
 # Code Review mode instructions

@@ -9,10 +9,13 @@ handoffs:
     send: true
   - label: Perform the code review again
     agent: Code Review
-    prompt: Perform the code review again, with your reflections in mind
+    prompt: Perform the code review again, with critical assessment results in mind
+  - label: How to fix this?
+    agent: Problem resolution
+    prompt: Given the critical assessment results, how would you fix the problems found? Think holistically with long-term implications in mind. Code fixes should obey best practices and support future development and maintenance. Provide a detailed plan of what needs to be changed and why. Consider root causes of the problems found, not just symptoms.
   - label: Fix review comments
     agent: Programmer
-    prompt: Fix all comments and problems revealed by outcomes of self-validating the code review. Make sure issues are fixed holistically. Investigate where do the problems stem from, find root causes, fix them everywhere they appear.
+    prompt: Fix all comments and problems revealed by outcomes of self-validating the code review. Make sure issues are fixed holistically. Investigate where do the problems stem from, find root causes, fix them everywhere they appear. Necessarily cover found bugs with tests.
     send: true
 ---
 # Critical thinking mode instructions
