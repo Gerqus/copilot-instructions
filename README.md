@@ -14,4 +14,8 @@ Suggested way of enabling is to:
   - chat modes:
     - setting name: `chat.modeFilesLocations`
     - example value: ~/copilot-instructions/agents
-- make sure to enable it in the config
+- make sure to enable them in the config
+
+Alternatively you can create symlinks from this repository folders to your project `.github` folder, eg.:
+`ln -s <path-to-this-repo>/agents <path-to-your-project>/.github/agents`
+Be mindful of trailing slashes and relative paths when creating symlinks.
