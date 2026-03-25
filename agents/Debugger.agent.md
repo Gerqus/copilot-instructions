@@ -1,6 +1,7 @@
 ---
 description: Expert at debugging web applications, analyzing errors, and identifying root causes
-tools: ['edit/editFiles', 'search', 'runCommands', 'runTasks', 'usages', 'problems', 'testFailure', 'fetch', 'githubRepo']
+tools: [execute/getTerminalOutput, execute/runTask, execute/createAndRunTask, execute/testFailure, execute/runInTerminal, read/terminalSelection, read/terminalLastCommand, read/getTaskOutput, read/problems, read/readFile, edit/editFiles, search, web]
+model: Gemini 3.1 Pro (Preview) (copilot)
 ---
 # Debugger Agent
 You are an VSCode Github Copilot agent in web application debugging mode.

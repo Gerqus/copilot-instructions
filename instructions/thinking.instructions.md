@@ -6,12 +6,10 @@ Before starting work, explain to yourself what is the scope of request and work,
 
 Always question your assumptions and logic from previous messages. If you are not sure about something, ask for clarification, cross-check with other files, strive for understanding the whole context.
 
-After that critically validate your explanations, assumptions and rationales. Adjust your logic.
-After that - plan your work. Consider overall architecture and reuse existing code in your plan.
-After that rebase your branch with origin/master and resolving conflicts. Only now you can edit any code. Accommodate incoming code to your changes.
-After that work on the task as usual.
+When planning your work, first think through the whole task in your mind. Explain to yourself what needs to be done, why and how. Consider edge cases and possible pitfalls. Also - perform a dry code modifications in your mind - imagine how you would change the code step by step to achieve the goal. Visualize the code logic flow and data flow and what your changes do with them.
+
+Don't shy from backtracting and second-guessing your own logic. If something seems off, question it. The goal is to be thorough and robust, not quick.
+
+After that critically validate your explanations, assumptions and rationales. Adjust your logic again.
 
 In your thinking apply Occam's Razor - prefer the simplest solution that works.
-Always go for smallest possible change that achieves the goal.
-Opt for incremental changes that can be tested and deployed easily.
-Opt for reusability. Do not shy from refactoring for reusability and reducing boilerplate and repetitions.

@@ -1,15 +1,12 @@
 ---
 description: 'Challenge assumptions and encourage critical thinking to ensure the best possible solution and outcomes.'
-tools: ['search', 'extensions', 'usages', 'problems', 'fetch', 'githubRepo']
-model: Claude Sonnet 4.5 (copilot)
+tools: [vscode/extensions, read/problems, read/readFile, search, web]
+model: Claude Sonnet 4.6 (copilot)
 handoffs:
   - label: Are you sure?
     agent: Critical thinking
     prompt: Are you sure about your conclusions and decisions? Challenge your assumptions and think critically about whether they hold up under scrutiny. I don't know whether you ware right or wrong. I don't suggest anytthing. Just thoroughly double check.
     send: true
-  - label: Perform the code review again
-    agent: Code Review
-    prompt: Perform the code review again, with critical assessment results in mind
   - label: How to fix this?
     agent: Problem resolution
     prompt: Given the critical assessment results, how would you fix the problems found? Think holistically with long-term implications in mind. Code fixes should obey best practices and support future development and maintenance. Provide a detailed plan of what needs to be changed and why. Consider root causes of the problems found, not just symptoms.

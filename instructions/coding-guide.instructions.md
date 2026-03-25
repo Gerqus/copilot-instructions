@@ -33,3 +33,8 @@ description: This file contains coding standards, development guidelines, set of
 - Centralize general purpose functions into reusable utility files
 - Try and reuse existing logic and functionalities and derive from them and build off of them as much as possible
 - No fallbacks. Create one, robust solution that will work.
+- Try and solve edge cases in a non-effort manner. E.g. if an edge case occurs when a value is null, handle nulls gracefully everywhere instead of adding checks for null here and there. Or if an edge case occurs when some logic would surely return empty array, just allow that logic to run and handle empty arrays which can be returned anyway in other cases too, instead of branching the logic to handle that edge case specifically.
+- Actually avoid branching logic at all times if feasible. Rather expand object and entities, lean towards object oriented programming, instead of procedural programming with lots of branching.
+- Always go for smallest possible change that achieves the goal fully, with consequences of the change considered.
+- Opt for incremental changes that can be tested and deployed easily rather than large, risky ones.
+- Opt for reusability. Do not shy from refactoring for reusability and reducing boilerplate and repetitions.

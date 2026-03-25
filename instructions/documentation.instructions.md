@@ -19,3 +19,6 @@ applyTo: "docs/**/*.md"
 - Use bullet points for lists.
 - Include links to related resources.
 - Use code blocks for code snippets.
+
+## API Documentation Specifics
+for specific project oriented documentation files look into, read and understand files inside `/docs` folder of this project.
