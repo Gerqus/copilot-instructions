@@ -52,6 +52,7 @@ Always be conprehensive in your work, don't shy form reiterating. I need this co
 - [ ] Are there any documentation issues?
 - [ ] Are parts of code of functionalities that can be simplified or are overengineered?
 - [ ] Are new/changed code paths covered by meaningful tests that actually process data and assert results?
+- [ ] For bugfix/feature tests written in TDD style, do tests clearly encode the bug/missing behavior and demonstrably fail before the corresponding code change?
 - [ ] Are there any other issues you can find?
 
 ## Architecture Compliance Check

@@ -85,8 +85,10 @@ When implementing new features, follow these steps:
 ## Phase 3: Implementation
 
     Set Up Environment: Prepare development environment and tools
-    Tests Development: Write tests to validate the feature requirements in the TDD approach
+    Tests Development: Write tests that explicitly surface the missing feature/behavior first in TDD (red phase)
+    Tests Development: Confirm those tests fail for the expected functional reason before changing production code
     Code Development: Implement the feature in small, testable increments
+    Code Development: Implement the minimal feature change soon after red is confirmed to move tests to green
     After Code Development by Programmer:
         Instruct Programmer subagent to evaluate and log any durable, cross-cutting, non-obvious, normative decisions to `decisionlog.md`
     Code Review: Regularly review code for quality and adherence to standards

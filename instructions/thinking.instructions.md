@@ -12,4 +12,6 @@ Don't shy from backtracting and second-guessing your own logic. If something see
 
 After that critically validate your explanations, assumptions and rationales. Adjust your logic again.
 
+When tests are part of the work, reason in TDD order: define a test that surfaces the bug or missing behavior first, verify it fails for the right reason, then proceed with the smallest implementation change to move from red to green.
+
 In your thinking apply Occam's Razor - prefer the simplest solution that works.

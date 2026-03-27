@@ -52,8 +52,9 @@ Rules:
 After running tests, perform additional assessment:
 1. **Assertion Quality**: Verify that test assertions are meaningful (not trivial assertions like `assertTrue(true)` or empty assertions)
 2. **Code Path Coverage**: Verify that new or changed code paths are exercised by at least one test with meaningful data processing
-3. **Trivial Test Detection**: Flag tests that pass trivially without processing actual data or making real assertions
-4. Report "Test Coverage Assessment" section in output:
+3. **Problem-Surfacing Quality**: For bugfix/feature tests, verify they are capable of surfacing the original bug or missing behavior (and are not merely smoke checks)
+4. **Trivial Test Detection**: Flag tests that pass trivially without processing actual data or making real assertions
+5. Report "Test Coverage Assessment" section in output:
    - List changed/new functions and which are exercised by tests
    - List changed/new functions that are NOT exercised by tests
    - Flag any tests that appear to pass trivially

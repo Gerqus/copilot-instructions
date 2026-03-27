@@ -38,3 +38,4 @@ description: This file contains coding standards, development guidelines, set of
 - Always go for smallest possible change that achieves the goal fully, with consequences of the change considered.
 - Opt for incremental changes that can be tested and deployed easily rather than large, risky ones.
 - Opt for reusability. Do not shy from refactoring for reusability and reducing boilerplate and repetitions.
+- For bugfixes and feature work, apply TDD: first write tests that expose the current bug or missing behavior, confirm they fail for the expected functional reason, then implement the minimal fix/feature change to make them pass.

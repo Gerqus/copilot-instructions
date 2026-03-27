@@ -133,8 +133,9 @@ Keep iterating until explicit approval or handoff.
 2. {For plans with 5+ steps, group steps into named phases with enough detail to be independently actionable}
 
 **Tests** (TDD approach)
-- Test 1: {assertion of expected behavior, focused on core logic}
+- Test 1: {test that first exposes the current bug or missing feature behavior and fails for the correct functional reason}
 - Test 2: {edge case or error handling}
+- Red → Green expectation: confirm failing test first, then implement the minimal fix/feature change promptly after.
 - Where to write: `tests/` directory following existing test patterns
 - Verification: run `bash tests/run_all.sh` to confirm tests pass after implementation
 

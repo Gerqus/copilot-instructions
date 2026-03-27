@@ -105,8 +105,10 @@ Follow this structured debugging process:
 ### Phase 3: Resolution
 
     Implement Fix:
-        Write and ddjust tests to capture and expose the bug - this is critical, since previous tests did not catch the bug
+        Write and adjust tests to capture and expose the bug first (TDD red phase) - this is critical, since previous tests did not catch the bug
+        Ensure the new/updated test fails for the right reason before changing production code
         Make targeted, minimal changes to address the root cause
+        Implement the fix immediately after the failing test is confirmed (TDD green phase)
         Ensure changes follow existing code patterns and conventions
         Add defensive programming practices where appropriate
         Consider edge cases and potential side effects
