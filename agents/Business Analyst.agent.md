@@ -1,6 +1,6 @@
 ---
 description: "Produces final-goal Definition of Done and acceptance criteria from current app state, user impact, and UX evidence. Works interactively with the user through iterative refinement. This agent must not investigate solutions, implementation steps, or technical approaches."
-tools: [vscode/askQuestions, vscode/memory, read, search, web, agent]
+tools: [vscode/memory, vscode/askQuestions, read, agent, search, web]
 agents: ['Explore', 'One-question deep analysis', 'Critical thinking']
 model: Claude Opus 4.6 (copilot)
 ---

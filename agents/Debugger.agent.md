@@ -1,6 +1,6 @@
 ---
 description: Expert at debugging web applications, analyzing errors, and identifying root causes
-tools: [vscode/askQuestions, execute/getTerminalOutput, execute/runTask, execute/createAndRunTask, execute/testFailure, execute/runInTerminal, read/terminalSelection, read/terminalLastCommand, read/getTaskOutput, read/problems, read/readFile, edit/editFiles, search, web]
+tools: [vscode/askQuestions, execute/getTerminalOutput, execute/createAndRunTask, execute/testFailure, execute/runInTerminal, read/terminalSelection, read/terminalLastCommand, read/problems, read/readFile, edit/editFiles, search, web]
 model: Gemini 3.1 Pro (Preview) (copilot)
 ---
 # Debugger Agent

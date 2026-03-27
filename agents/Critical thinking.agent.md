@@ -1,6 +1,6 @@
 ---
 description: 'Challenge assumptions and encourage critical thinking to ensure the best possible solution and outcomes.'
-tools: [vscode/askQuestions, vscode/extensions, read/problems, read/readFile, search, web]
+tools: [vscode/extensions, vscode/askQuestions, read/problems, read/readFile, search, web]
 model: Claude Sonnet 4.6 (copilot)
 handoffs:
   - label: Are you sure?

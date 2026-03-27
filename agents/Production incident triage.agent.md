@@ -1,6 +1,6 @@
 ---
 description: "Specializes in reproducing production issues from user reports, log analysis, and performance metrics. Produces structured triage reports."
-tools: [vscode/askQuestions, vscode/memory, execute/runInTerminal, execute/getTerminalOutput, execute/runTask, read, search, web, browser, agent]
+tools: [vscode/memory, vscode/askQuestions, execute/getTerminalOutput, execute/runInTerminal, read, agent, browser, search, web]
 agents: ['Explore', 'Debugger', 'Root-cause analyzis']
 handoffs:
   - label: Diagnose root cause

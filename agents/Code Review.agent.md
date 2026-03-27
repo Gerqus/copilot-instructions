@@ -1,6 +1,6 @@
 ---
 description: Review code changes, suggest improvements, and ensure code quality.
-tools: [vscode/askQuestions, vscode/memory, vscode/resolveMemoryFileUri, execute/getTerminalOutput, execute/awaitTerminal, execute/runTask, execute/testFailure, execute/runInTerminal, read, agent, browser, search, web, 'playwright/*', todo, ms-vscode.vscode-websearchforcopilot/websearch]
+tools: [vscode/memory, vscode/resolveMemoryFileUri, vscode/askQuestions, execute/getTerminalOutput, execute/awaitTerminal, execute/testFailure, execute/runInTerminal, read, agent, browser, search, web, 'playwright/*', ms-vscode.vscode-websearchforcopilot/websearch, todo]
 agents: ['Architecture guard', 'One-question deep analysis', 'Critical thinking', 'Explore', 'Verifier']
 handoffs:
   - label: Critically assess code review outcomes

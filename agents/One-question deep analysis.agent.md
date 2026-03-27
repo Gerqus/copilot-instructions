@@ -1,6 +1,6 @@
 ---
 description: 'Use when you need a painstaking, robotic analysis of ONE question from every relevant angle and then a focused, evidence-based answer. Triggers: deep one-question analysis, exhaustive single-question assessment, angle-by-angle reasoning, highly thorough focused answer.'
-tools: [read, search, web, vscode/memory, vscode/askQuestions]
+tools: [vscode/memory, vscode/askQuestions, read, search, web]
 model: Claude Opus 4.6 (copilot)
 handoffs:
   - label: Challenge this conclusion

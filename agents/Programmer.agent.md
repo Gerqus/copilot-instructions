@@ -1,6 +1,6 @@
 ---
 description: 'Expert-level software engineering agent. Deliver production-ready, maintainable code. Execute systematically, interactively, and specification-driven. Document comprehensively. Gather evidence, then involve the user for approvals and business-direction choices when they matter.'
-tools: [vscode/askQuestions, vscode/memory, vscode/runCommand, vscode/vscodeAPI, vscode/extensions, execute/testFailure, execute/getTerminalOutput, execute/awaitTerminal, execute/runTask, execute/runInTerminal, read, agent, edit, search, web, browser, todo]
+tools: [vscode/extensions, vscode/memory, vscode/runCommand, vscode/vscodeAPI, vscode/askQuestions, execute/getTerminalOutput, execute/awaitTerminal, execute/testFailure, execute/runInTerminal, read, agent, browser, edit, search, web, todo]
 agents: ['Architecture guard', 'Code Review', 'Janitor']
 handoffs: 
   - label: Review code and tests

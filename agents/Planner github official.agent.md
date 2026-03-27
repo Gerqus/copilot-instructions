@@ -4,7 +4,7 @@ description: Researches and outlines multi-step plans - adjusted by me
 argument-hint: Outline the goal or problem to research
 target: vscode
 disable-model-invocation: true
-tools: [vscode/askQuestions, vscode/memory, vscode/resolveMemoryFileUri, execute/getTerminalOutput, execute/awaitTerminal, execute/testFailure, read, agent, search, web]
+tools: [vscode/memory, vscode/resolveMemoryFileUri, vscode/askQuestions, execute/getTerminalOutput, execute/awaitTerminal, execute/testFailure, read, agent, search, web]
 agents: ['Explore', 'Business Analyst', 'Architecture guard', 'Root-cause analyzis', 'Ask', 'Debugger', 'Problem resolution', 'Critical thinking', 'Code Review']
 handoffs:
   - label: Produce Definition of Done

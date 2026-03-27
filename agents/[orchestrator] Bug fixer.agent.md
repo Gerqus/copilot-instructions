@@ -1,7 +1,7 @@
 ---
 description: Orchestrates bugfixing with help of specialised subagents.
 disable-model-invocation: true
-tools: [vscode/memory, vscode/runCommand, vscode/askQuestions, execute/testFailure, execute/awaitTerminal, execute/runInTerminal, read, agent, search, web, browser, 'playwright/*', 'pylance-mcp-server/*', ms-python.python/getPythonEnvironmentInfo, ms-python.python/getPythonExecutableCommand, ms-vscode.vscode-websearchforcopilot/websearch, todo]
+tools: [vscode/memory, vscode/runCommand, vscode/askQuestions, execute/awaitTerminal, execute/testFailure, execute/runInTerminal, read, agent, browser, search, web, 'playwright/*', 'pylance-mcp-server/*', ms-python.python/getPythonEnvironmentInfo, ms-python.python/getPythonExecutableCommand, ms-vscode.vscode-websearchforcopilot/websearch, todo]
 agents: ['Debugger', 'Root-cause analyzis', 'Problem resolution', 'Programmer', 'Code Review', 'Critical thinking', 'Janitor']
 handoffs:
   - label: Finalize — review, test, cleanup and verify

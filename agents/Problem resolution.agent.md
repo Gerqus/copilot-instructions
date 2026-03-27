@@ -1,6 +1,6 @@
 ---
 description: Selecting resolution for a problem base on RCA
-tools: [vscode/askQuestions, vscode/memory, execute/getTerminalOutput, execute/testFailure, read, search, web, ms-vscode.vscode-websearchforcopilot/websearch, agent]
+tools: [vscode/memory, vscode/askQuestions, execute/getTerminalOutput, execute/testFailure, read, agent, search, web, ms-vscode.vscode-websearchforcopilot/websearch]
 agents: ['Explore', 'One-question deep analysis', 'Critical thinking', 'Architecture guard', 'Ask']
 model: Gemini 3.1 Pro (Preview) (copilot)
 ---

@@ -1,7 +1,7 @@
 ---
 description: Orchestrates complex features development.
 disable-model-invocation: true
-tools: [vscode/askQuestions, vscode/memory, vscode/runCommand, execute/awaitTerminal, execute/testFailure, execute/runInTerminal, read, agent, browser, search, web, 'playwright/*', 'pylance-mcp-server/*', todo, ms-python.python/getPythonEnvironmentInfo, ms-python.python/getPythonExecutableCommand, ms-vscode.vscode-websearchforcopilot/websearch]
+tools: [vscode/memory, vscode/runCommand, vscode/askQuestions, execute/awaitTerminal, execute/testFailure, execute/runInTerminal, read, agent, browser, search, web, 'playwright/*', 'pylance-mcp-server/*', ms-python.python/getPythonEnvironmentInfo, ms-python.python/getPythonExecutableCommand, ms-vscode.vscode-websearchforcopilot/websearch, todo]
 agents: ['Debugger', 'Root-cause analyzis', 'Problem resolution', 'Programmer', 'Code Review', 'Critical thinking', 'Janitor', 'Verifier']
 handoffs:
   - label: Finalize — review, test, cleanup and verify

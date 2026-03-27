@@ -1,6 +1,7 @@
 ---
 description: "Strict architecture guard for design/code review against docs/architecture.md, with hard failures for missing architecture source, strong separation-of-concerns checks, blackbox modularity enforcement, and overcomplication detection."
-tools: [vscode/askQuestions, vscode/memory, read, search]
+tools: [vscode/memory, vscode/askQuestions, read, search]
+agents: ['Explore']
 model: Claude Opus 4.6 (copilot)
 ---
 # Architecture guard

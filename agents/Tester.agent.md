@@ -1,7 +1,7 @@
 ---
 description: "Testing specialist for raw unit-failure capture and Playwright manual browser validation with actionable QA insights."
 argument-hint: "What to test: scope, URLs, and user flows"
-tools: [vscode/askQuestions, execute/runTask, execute/testFailure, execute/runInTerminal, read, search, browser, 'playwright/*', todo]
+tools: [vscode/askQuestions, execute/testFailure, execute/runInTerminal, read, browser, search, 'playwright/*', todo]
 model: [GPT-5.4 (copilot), 'Claude Sonnet 4.6 (copilot)']
 ---
 # Tester agent
