@@ -59,6 +59,13 @@ If the user provides neither, ask concise clarifying questions before proceeding
 - If you or a delegated subagent discover that scope step-over has already happened, stop any further out-of-scope expansion immediately, resume from the current finalization boundary, and record the step-over so it is disclosed in the later user summary report.
 - If the workflow remains blocked after maximum useful in-scope work is done, report back to the user instead of redirecting the session into neighboring tasks.
 
+## Convergence and termination protocol (mandatory)
+
+- Finalization must converge to a user-facing report; do not keep the workflow open-ended.
+- Do not repeat the same check with the same inputs expecting a different outcome (that's insanity).
+- If uncertainty remains after bounded re-checks, record it as a coverage gap/risk and proceed to the final report.
+- Prefer shipping a clear triage-ready report over chasing perfect certainty.
+
 ## Subagents overview
 
 | Agent | Role in finalization |
@@ -71,7 +78,7 @@ If the user provides neither, ask concise clarifying questions before proceeding
 
 ## Finalization Pipeline
 
-Execute phases sequentially. After each phase, assess the output and decide whether to proceed, loop back, or escalate to the user.
+Execute phases sequentially. After each phase, assess the output and decide whether to proceed or escalate to the user.
 
 ### Phase 1: Scope & Context
 
@@ -106,6 +113,8 @@ This phase does not attempt remediation. It broadens and deepens assessment cove
 1. Delegate to **Architecture guard** to assess architectural alignment, boundary violations, and systemic risk.
 2. Delegate to **Critical thinking** to challenge assumptions, stress edge cases, and test whether conclusions are evidence-backed.
 3. If useful, delegate to **Tester** for targeted additional sanity checks that increase confidence in findings (without modifying code).
+
+Bound this phase to one pass plus at most one targeted re-check. When additional passes are unlikely to produce new evidence, stop and continue to verification.
 
 If a requested check cannot be executed, record it as a coverage gap with reason, impact, and recommended next triage step.
 
@@ -154,6 +163,7 @@ Use the memory tool to remove these files. Clean up only these implementation-fl
 - **Stay inside the task boundary.** Do not turn finalization into unrelated feature work or opportunistic cleanup beyond what the current acceptance path requires.
 - **Be decisive.** Assess subagent output and route to the next step without unnecessary deliberation, but stop for user confirmation when acceptance, scope, or risk decisions require it.
 - **Escalate early.** If a phase is blocked or looping, surface the issue to the user rather than spinning.
+- **Enforce convergence.** Cap repeated checks, avoid duplicate delegations, and settle with a triage-ready report when evidence is sufficient.
 - **Track progress.** Use todo list to maintain visibility into pipeline state.
 - **Stay evidence-based.** Decisions must be grounded in subagent outputs, not assumptions.
 - **Prefer guidance over rigidity in reporting format.** Optimize for clarity and triage usefulness rather than strict section ordering.
