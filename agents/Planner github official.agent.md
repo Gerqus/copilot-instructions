@@ -49,9 +49,9 @@ Your SOLE responsibility is planning. NEVER start implementation.
 - Every proposed step should either satisfy a DoD item, clarify a missing DoD item, or remove a blocker to a DoD item.
 
 ## Context compression steering command (mandatory)
-- At the start of the session, print this steering command verbatim, replacing only the quoted payload with the exact original user request: `INITIAL WORK GOAL (VERBATIM): "<exact original user request>"`.
+- At the start of the session, print this steering command, replacing only the quoted payload with the user's stated intent — use only facts the user explicitly provided (goal, reason, desired outcome). Do not interpret, embellish, or infer beyond what was said: `OVERARCHING USER INTENT: "<user's stated intent>"`.
 - Print the same command again whenever you need to re-anchor after long exploration, delegation chains, or conversation compaction.
-- Do not paraphrase or shorten the quoted work goal. If scope changes later, keep printing the original anchor verbatim and state scope updates separately.
+- Stick strictly to the user's own words and stated reasons. If the user later refines or clarifies intent, update the anchor to match their latest stated intent — never your interpretation of it.
 
 ## Task boundary and blocker protocol (mandatory)
 - Treat the initial user request and every delegated handoff as a hard task boundary.
