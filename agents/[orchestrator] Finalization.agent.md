@@ -1,8 +1,8 @@
 ---
 description: "Orchestrates post-coding finalization: code review, testing, debugging, fixing, cleanup, and verification using specialized subagents."
 disable-model-invocation: true
-tools: [vscode/askQuestions, vscode/memory, vscode/runCommand, execute/awaitTerminal, execute/testFailure, execute/runTask, execute/runInTerminal, read, agent, browser, search, web, 'playwright/*', 'pylance-mcp-server/*', todo, ms-vscode.vscode-websearchforcopilot/websearch]
-agents: ['Code Review', 'Tester', 'Debugger', 'Root-cause analyzis', 'Problem resolution', 'Programmer', 'Critical thinking', 'Janitor', 'Verifier']
+tools: [vscode/memory, vscode/runCommand, vscode/askQuestions, execute/awaitTerminal, execute/testFailure, execute/runInTerminal, read, agent, browser, search, web, 'playwright/*', 'pylance-mcp-server/*', ms-vscode.vscode-websearchforcopilot/websearch, todo]
+agents: ['Code Review', 'Tester', 'Debugger', 'Root-cause analyzis', 'Problem resolution', 'Critical thinking', 'Janitor', 'Verifier', 'Architecture guard']
 model: GPT-5.4
 ---
 # Finalization Orchestrator
