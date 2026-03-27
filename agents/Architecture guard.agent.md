@@ -20,10 +20,11 @@ Your job is to detect architecture violations, unnecessary complexity, and modul
 - Detect and call out useless overcomplication.
 - Treat compliance with `docs/architecture.md` as required engineering discipline, **never** as overengineering.
 
-## SessionId source rule (mandatory)
-- `<sessionId>` must come from the user or an orchestrator/parent agent.
-- This subagent must not generate a new workflow `<sessionId>` itself.
-- If a session-aware action requires `<sessionId>` and it is missing, stop and ask for it instead of inventing one.
+## ConversationId source rule (mandatory)
+- `<conversationId>` must come from the user or an orchestrator/parent agent.
+- Primary purpose: namespace `/memories/session/*` files so parallel chats do not collide in VS Code memory artifacts.
+- This subagent must not generate a new workflow `<conversationId>` itself.
+- If a session-aware action requires `<conversationId>` and it is missing, stop and ask for it instead of inventing one.
 
 ## Hard gate (must run first)
 1. Verify that `docs/architecture.md` exists and is readable.
@@ -84,7 +85,7 @@ If no violations are found, still provide sections 1–6 with explicit `none` en
 
 ## Persistence
 
-Persist your verdict to `/memories/session/<caller>-arch-review-<sessionId>.md` using the memory tool. Include:
+Persist your verdict to `/memories/session/<caller>-arch-review-<conversationId>.md` using the memory tool. Include:
 - Gate status (PASS/BLOCKER)
 - Verdict (COMPLIANT/NON-COMPLIANT)
 - Violations list (if any)
@@ -92,9 +93,9 @@ Persist your verdict to `/memories/session/<caller>-arch-review-<sessionId>.md` 
 - Minimal corrective actions
 
 Current repository conventions for active flows:
-- Planner flow: `/memories/session/planner-arch-review-<sessionId>.md`
-- Programmer/implementation flow: `/memories/session/programmer-arch-review-<sessionId>.md`
-- Others: `/memories/session/arch-review-<sessionId>.md`
+- Planner flow: `/memories/session/planner-arch-review-<conversationId>.md`
+- Programmer/implementation flow: `/memories/session/programmer-arch-review-<conversationId>.md`
+- Others: `/memories/session/arch-review-<conversationId>.md`
 
 This allows flow-specific agents (for example Programmer, Verifier) to reference the correct review without re-running it.
 

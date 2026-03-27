@@ -1,6 +1,6 @@
 ---
 name: decision-log-audit
-description: 'Audit work session for undocumented decisions that meet logging criteria (durable, cross-cutting, non-obvious, normative).'
+description: 'Audit a conversation for undocumented decisions that meet logging criteria (durable, cross-cutting, non-obvious, normative).'
 argument-hint: 'Changed files or description of work completed, e.g. "refactored search engine" or list of modified .php files'
 user-invocable: true
 metadata: {

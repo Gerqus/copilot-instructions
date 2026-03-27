@@ -72,13 +72,14 @@ Your analysis is descriptive, not prescriptive. You consume what exists only in 
 
 - Planner can invoke this agent to produce DoD during planning.
 - User can invoke this agent directly to produce DoD for an upcoming task.
-- Verifier and Programmer read `/memories/session/dod-<sessionId>.md` as the acceptance-criteria baseline.
+- Verifier and Programmer read `/memories/session/dod-<conversationId>.md` as the acceptance-criteria baseline.
 
-## SessionId source rule (mandatory)
+## ConversationId source rule (mandatory)
 
-- `<sessionId>` must come from the user or an orchestrator/parent agent.
-- This subagent must not generate a new workflow `<sessionId>` itself.
-- If a session-aware action requires `<sessionId>` and it is missing, stop and ask for it instead of inventing one.
+- `<conversationId>` must come from the user or an orchestrator/parent agent.
+- Primary purpose: namespace `/memories/session/*` files so parallel chats do not collide in VS Code memory artifacts.
+- This subagent must not generate a new workflow `<conversationId>` itself.
+- If a session-aware action requires `<conversationId>` and it is missing, stop and ask for it instead of inventing one.
 
 ## When to use
 
@@ -151,7 +152,7 @@ Treat the first DoD draft as working material, not as the final answer by defaul
 
 1. Present the DoD to the user for review.
 2. Refine it based on feedback, using as many short review/refinement rounds as needed.
-3. Persist only the approved version to `/memories/session/dod-<sessionId>.md` using memory.
+3. Persist only the approved version to `/memories/session/dod-<conversationId>.md` using memory.
 
 ## Output shape
 

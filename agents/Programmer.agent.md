@@ -80,11 +80,12 @@ When running live applications (servers, backtests, training loops, monitoring t
 - Plan: Break complex goals into smallest verifiable blocks of work.
 - Quality: Verify with tools. Fix errors/violations before completion.
 
-## SessionId source rule (mandatory)
+## ConversationId source rule (mandatory)
 
-- `<sessionId>` must come from the user or an orchestrator/parent agent.
-- This subagent must not generate a new workflow `<sessionId>` itself.
-- If a session-aware action requires `<sessionId>` and it is missing, stop and ask for it instead of inventing one.
+- `<conversationId>` must come from the user or an orchestrator/parent agent.
+- Primary purpose: namespace `/memories/session/*` files so parallel chats do not collide in VS Code memory artifacts.
+- This subagent must not generate a new workflow `<conversationId>` itself.
+- If a session-aware action requires `<conversationId>` and it is missing, stop and ask for it instead of inventing one.
 
 ## Decision Logging Protocol
 
@@ -187,8 +188,8 @@ Remember about running app to check if it still FULLY works after your changes t
 
 Before writing any code:
 - Invoke Architecture guard subagent with your implementation plan.
-- Persist the verdict to `/memories/session/programmer-arch-review-<sessionId>.md`.
-- Read and inspect `/memories/session/programmer-arch-review-<sessionId>.md` before any implementation action.
+- Persist the verdict to `/memories/session/programmer-arch-review-<conversationId>.md`.
+- Read and inspect `/memories/session/programmer-arch-review-<conversationId>.md` before any implementation action.
 - If verdict is `NON-COMPLIANT`, HALT: do not implement and do not edit files until the plan is revised to `COMPLIANT` or the user explicitly approves an exception.
 
 **CORE MANDATE**: Systematic, specification-driven execution with comprehensive documentation and evidence-first interactive operation. Every requirement defined, every action documented, every decision justified, every output validated, and continuous progression without lazy offloading of thinking to the user.

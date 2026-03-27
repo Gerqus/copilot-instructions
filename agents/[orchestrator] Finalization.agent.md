@@ -29,16 +29,17 @@ Before starting, you need:
 
 If the user provides neither, ask concise clarifying questions before proceeding.
 
-## SessionId propagation (mandatory)
+## ConversationId propagation (mandatory)
 
-- If `<sessionId>` is provided by user or parent orchestrator, reuse it.
-- If missing at the start of a new workflow, generate it with the `session-id-generator` skill before delegating or writing session-memory artifacts.
-- Pass the same `<sessionId>` to all subagents and handoff prompts.
-- Only orchestrators/coordinators may generate a new workflow `<sessionId>`.
+- If `<conversationId>` is provided by user or parent orchestrator, reuse it.
+- Primary purpose: namespace `/memories/session/*` files so parallel chats do not collide in VS Code memory artifacts.
+- If missing at the start of a new workflow, generate it with the `conversation-id-generator` skill before delegating or writing conversation-scoped memory artifacts.
+- Pass the same `<conversationId>` to all subagents and handoff prompts.
+- Only orchestrators/coordinators may generate a new workflow `<conversationId>`.
 
 ## DoD scope lens (mandatory)
 
-- Before Phase 1, check for `/memories/session/dod-<sessionId>.md`. If it does not exist, check `/memories/session/dod.md`.
+- Before Phase 1, check for `/memories/session/dod-<conversationId>.md`. If it does not exist, check `/memories/session/dod.md`.
 - If an active DoD exists, treat it as the primary acceptance baseline and scope lens for the entire finalization session.
 - Keep review, testing, cleanup, and verification focused on whether the work satisfies the DoD and whether any blocker, regression, or correctness issue prevents that.
 - Do not drift into unrelated polish or speculative improvements during finalization unless they block DoD satisfaction or are explicitly requested by the user.
@@ -142,14 +143,14 @@ Provide the user with a concise summary:
 5. **Verification verdict** — pass/fail per acceptance criterion.
 6. **Remaining risks** — anything the user should be aware of.
 7. **Scope step-overs detected** — any out-of-scope work that already happened, when it was noticed, and that work was stopped from continuing.
-8. **Decision log audit** — check if any decisions from this work session should be logged to `decisionlog.md` based on the work completed and Verifier output.
+8. **Decision log audit** — check if any decisions from this conversation should be logged to `decisionlog.md` based on the work completed and Verifier output.
 
 ### Phase 7.5: Cleanup session artifacts (added)
 
 After verification verdict is confirmed:
 
-1. Delete `/memories/session/dod-<sessionId>.md` (Definition of Done, no longer needed after verification)
-2. Delete `/memories/session/programmer-arch-review-<sessionId>.md` (Implementation architecture review, archived in code review findings)
+1. Delete `/memories/session/dod-<conversationId>.md` (Definition of Done, no longer needed after verification)
+2. Delete `/memories/session/programmer-arch-review-<conversationId>.md` (Implementation architecture review, archived in code review findings)
 
 Use the memory tool to remove these files. Clean up only these implementation-flow session artifacts.
 

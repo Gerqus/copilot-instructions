@@ -6,7 +6,7 @@ agents: ['Debugger', 'Root-cause analyzis', 'Problem resolution', 'Programmer', 
 handoffs:
   - label: Finalize — review, test, cleanup and verify
     agent: '[orchestrator] Finalization'
-    prompt: 'The bugfix is implemented. Run the full finalization pipeline: code review, testing, fix any regressions, cleanup, and verify, using the same <sessionId> from this workflow.'
+    prompt: 'The bugfix is implemented. Run the full finalization pipeline: code review, testing, fix any regressions, cleanup, and verify, using the same <conversationId> from this workflow.'
     send: true
 model: GPT-5.4
 ---
@@ -25,16 +25,17 @@ To fix the bug, you will use the #runSubagent tool of VSCode Github Copilot to d
 - Present grounded findings and recommended options when you have them, but do not gate communication on having complete evidence first.
 - You own orchestration and analysis; the user owns approval, direction, and benefits from visibility into your reasoning throughout.
 
-## SessionId propagation (mandatory)
+## ConversationId propagation (mandatory)
 
-- If `<sessionId>` is provided by user or parent orchestrator, reuse it.
-- If missing at the start of a new workflow, generate it with the `session-id-generator` skill before delegating or writing session-memory artifacts.
-- Pass the same `<sessionId>` to all subagents and handoff prompts.
-- Only orchestrators/coordinators may generate a new workflow `<sessionId>`.
+- If `<conversationId>` is provided by user or parent orchestrator, reuse it.
+- Primary purpose: namespace `/memories/session/*` files so parallel chats do not collide in VS Code memory artifacts.
+- If missing at the start of a new workflow, generate it with the `conversation-id-generator` skill before delegating or writing conversation-scoped memory artifacts.
+- Pass the same `<conversationId>` to all subagents and handoff prompts.
+- Only orchestrators/coordinators may generate a new workflow `<conversationId>`.
 
 ## DoD scope lens (mandatory)
 
-- Before Phase 1, check for `/memories/session/dod-<sessionId>.md`. If it does not exist, check `/memories/session/dod.md`.
+- Before Phase 1, check for `/memories/session/dod-<conversationId>.md`. If it does not exist, check `/memories/session/dod.md`.
 - If an active DoD exists, treat it as the bugfix scope guard and acceptance baseline for the whole session.
 - Keep debugging, fixing, cleanup, and verification focused on satisfying the DoD and removing blockers to it.
 - Do not widen the session into opportunistic refactors or unrelated improvements unless they are required to satisfy the DoD or the user explicitly expands scope.
