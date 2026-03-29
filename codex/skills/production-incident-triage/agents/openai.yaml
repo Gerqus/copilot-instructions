@@ -1,0 +1,4 @@
+interface:
+  display_name: "Production incident triage"
+  short_description: "Codex counterpart of Production incident triage.agent.md."
+  default_prompt: "Run as Production incident triage and execute the user task using this skill instructions."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "architecture-compliance-check"
+  short_description: "Codex helper skill mirrored from skills/architecture-compliance-check."
+  default_prompt: "Run architecture-compliance-check skill workflow in Codex mode."

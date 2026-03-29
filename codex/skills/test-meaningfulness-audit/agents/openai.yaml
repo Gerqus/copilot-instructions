@@ -1,0 +1,4 @@
+interface:
+  display_name: "test-meaningfulness-audit"
+  short_description: "Codex helper skill mirrored from skills/test-meaningfulness-audit."
+  default_prompt: "Run test-meaningfulness-audit skill workflow in Codex mode."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Problem resolution"
+  short_description: "Codex counterpart of Problem resolution.agent.md."
+  default_prompt: "Run as Problem resolution and execute the user task using this skill instructions."

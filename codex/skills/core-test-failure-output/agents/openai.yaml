@@ -1,0 +1,4 @@
+interface:
+  display_name: "core-test-failure-output"
+  short_description: "Codex helper skill mirrored from skills/core-test-failure-output."
+  default_prompt: "Run core-test-failure-output skill workflow in Codex mode."

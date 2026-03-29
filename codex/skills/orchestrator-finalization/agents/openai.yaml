@@ -1,0 +1,4 @@
+interface:
+  display_name: "[orchestrator] Finalization"
+  short_description: "Codex counterpart of [orchestrator] Finalization.agent.md."
+  default_prompt: "Run as [orchestrator] Finalization and execute the user task using this skill instructions."

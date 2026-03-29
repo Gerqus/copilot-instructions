@@ -1,0 +1,4 @@
+interface:
+  display_name: "Janitor"
+  short_description: "Codex counterpart of Janitor.agent.md."
+  default_prompt: "Run as Janitor and execute the user task using this skill instructions."

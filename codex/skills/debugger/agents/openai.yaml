@@ -1,0 +1,4 @@
+interface:
+  display_name: "Debugger"
+  short_description: "Codex counterpart of Debugger.agent.md."
+  default_prompt: "Run as Debugger and execute the user task using this skill instructions."

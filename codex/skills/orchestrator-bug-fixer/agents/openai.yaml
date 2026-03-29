@@ -1,0 +1,4 @@
+interface:
+  display_name: "[orchestrator] Bug fixer"
+  short_description: "Codex counterpart of [orchestrator] Bug fixer.agent.md."
+  default_prompt: "Run as [orchestrator] Bug fixer and execute the user task using this skill instructions."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "[orchestrator] Feature implementation"
+  short_description: "Codex counterpart of [orchestrator] Feature implementation.agent.md."
+  default_prompt: "Run as [orchestrator] Feature implementation and execute the user task using this skill instructions."

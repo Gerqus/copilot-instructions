@@ -1,0 +1,4 @@
+interface:
+  display_name: "security-gate"
+  short_description: "Codex helper skill mirrored from skills/security-gate."
+  default_prompt: "Run security-gate skill workflow in Codex mode."

@@ -1,0 +1,41 @@
+---
+applyTo: "**"
+description: This file contains coding standards, development guidelines, set of good practices and such. It should be applied to all code files in the project.
+---
+**Carefully follow ALL of the rules listed below**:
+- Modularize the code as blackboxes (private logic and public interfaces)
+- Prefer using installed packages over writing own code
+- When making changes always reuse existing functions and methods if possible.
+- Reduce boilerplate.
+- ALWAYS write code using principles of SOLID, ACID (atomicity, consistency, isolation, and durability), DRY, KISS and YAGNI
+- Functions should not cause side effects if possible.
+- Keep the code concise and conscious.
+- Avoid conditional logic (`if`, `&&`, `||`, `? :` etc.) and flags. Instead handle empty and falsy values gracefully.
+- Make the code and architecture modular and highly maintainable.
+- Methods should prefer getting data through `this` keyword instead of parameters when possible.
+- Insert logic into existing files with similar logic.
+- Use available utility functions.
+- Refactor and reuse existing code instead of writing new code.
+- Clean the code after you are done with changes. Remove dead code, console logs, comments, unused variables and imports.
+- Keep the project tidy and organized.
+- When refactoring, keep logically connected areas together.
+- Prefer shorter files.
+- Precisely follow instructions - do not add anything not mentioned and not necessary to complete the task successfully.
+- If you write a function or method - check if such functionality does not exist already. Reuse it. If it's scattered in many instances across the project - refactor to use one method in place of all that occurrences for maintainability.
+- BackEnd is THE SOLE authority of application state. It decides whether user is logged in, who they are, what they can do and what data they can access.
+- NEVER trust FrontEnd with anything - inputs, reports, identity, host. Consider it hostile environment.
+- On BackEnd always sanitize and validate all inputs coming *from FrontEnd*.
+- For each functionality maintain only one source of truth. If something is defined in one place - do not redefine it somewhere else, but reuse the original definition and derive from it.
+- Centralize repetitive logic into reusable functions and methods
+- Centralize repetitive functionalities into reusable services
+- Centralize repetitive constants into reusable constant files
+- Centralize repetitive types into reusable type definition files and interfaces
+- Centralize general purpose functions into reusable utility files
+- Try and reuse existing logic and functionalities and derive from them and build off of them as much as possible
+- No fallbacks. Create one, robust solution that will work.
+- Try and solve edge cases in a non-effort manner. E.g. if an edge case occurs when a value is null, handle nulls gracefully everywhere instead of adding checks for null here and there. Or if an edge case occurs when some logic would surely return empty array, just allow that logic to run and handle empty arrays which can be returned anyway in other cases too, instead of branching the logic to handle that edge case specifically.
+- Actually avoid branching logic at all times if feasible. Rather expand object and entities, lean towards object oriented programming, instead of procedural programming with lots of branching.
+- Always go for smallest possible change that achieves the goal fully, with consequences of the change considered.
+- Opt for incremental changes that can be tested and deployed easily rather than large, risky ones.
+- Opt for reusability. Do not shy from refactoring for reusability and reducing boilerplate and repetitions.
+- For bugfixes and feature work, apply TDD: first write tests that expose the current bug or missing behavior, confirm they fail for the expected functional reason, then implement the minimal fix/feature change to make them pass.

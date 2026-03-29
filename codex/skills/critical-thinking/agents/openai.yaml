@@ -1,0 +1,4 @@
+interface:
+  display_name: "Critical thinking"
+  short_description: "Codex counterpart of Critical thinking.agent.md."
+  default_prompt: "Run as Critical thinking and execute the user task using this skill instructions."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Code Review"
+  short_description: "Codex counterpart of Code Review.agent.md."
+  default_prompt: "Run as Code Review and execute the user task using this skill instructions."

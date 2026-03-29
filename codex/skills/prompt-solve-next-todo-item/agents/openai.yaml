@@ -1,0 +1,4 @@
+interface:
+  display_name: "Prompt: Solve_next_todo_item"
+  short_description: "Codex counterpart of Solve_next_todo_item.prompt.md."
+  default_prompt: "I need you to have a look at #file:TODO.md and pick up first from the top task of highest severity tasks and work on resolving it. Keep in mind we are still fixing MVP. Do not introduce target production architecture yet. Your current goal is to follow description and requirements of picked task..."

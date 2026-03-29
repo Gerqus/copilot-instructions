@@ -1,0 +1,4 @@
+interface:
+  display_name: "Prompt: finalize"
+  short_description: "Codex counterpart of finalize.prompt.md."
+  default_prompt: "Run the full assessment-only finalization pipeline on the work just completed. Do not fix/debug; report findings for later triage. Keep report format flexible and adapt it to what is most useful for triage.  **What was done:** ${input:What coding work was just completed?} **Acceptance criteria:**..."

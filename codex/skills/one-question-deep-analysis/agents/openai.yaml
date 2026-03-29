@@ -1,0 +1,4 @@
+interface:
+  display_name: "One-question deep analysis"
+  short_description: "Codex counterpart of One-question deep analysis.agent.md."
+  default_prompt: "Run as One-question deep analysis and execute the user task using this skill instructions."

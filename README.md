@@ -19,3 +19,15 @@ Suggested way of enabling is to:
 Alternatively you can create symlinks from this repository folders to your project `.github` folder, eg.:
 `ln -s <FULL-absolute-path-to-this-repo>/agents <FULL-absolute-path-to-your-project>/.github/agents`
 Be mindful of trailing slashes and relative paths when creating symlinks.
+
+
+# Codex line
+This repository now also contains a Codex-native equivalent under `codex/`, organized as a project-local `.codex` style workspace.
+
+Suggested way of using it:
+- point your Codex project instructions to `codex/AGENTS.md`
+- keep Codex skills in scope from `codex/skills/`
+- use `codex/references/` for shared instruction material
+
+To regenerate Codex assets after changing GitHub-side sources (`agents/`, `prompts/`, `skills/`, `instructions/`), run:
+`python3 codex/scripts/sync_codex_line.py`

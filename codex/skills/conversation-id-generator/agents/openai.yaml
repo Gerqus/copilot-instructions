@@ -1,0 +1,4 @@
+interface:
+  display_name: "conversation-id-generator"
+  short_description: "Codex helper skill mirrored from skills/conversation-id-generator."
+  default_prompt: "Run conversation-id-generator skill workflow in Codex mode."
