@@ -1,5 +1,5 @@
 ---
-description: CRA analyzis of a problem
+description: RCA analyzis of a problem
 tools: [vscode/memory, vscode/runCommand, vscode/vscodeAPI, vscode/askQuestions, execute/getTerminalOutput, execute/testFailure, execute/runInTerminal, read, browser, search, web, ms-vscode.vscode-websearchforcopilot/websearch]
 model: GPT-5.4 (copilot)
 ---

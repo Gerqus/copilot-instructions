@@ -1,6 +1,6 @@
 ---
 name: root-cause-analyzis
-description: 'CRA analyzis of a problem'
+description: 'RCA analyzis of a problem'
 argument-hint: 'Task context and desired outcome'
 user-invocable: true
 metadata: {
