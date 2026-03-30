@@ -1,4 +1,0 @@
-interface:
-  display_name: "Planner.old"
-  short_description: "Codex counterpart of Planner.old.md."
-  default_prompt: "Run as Planner.old and execute the user task using this skill instructions."
