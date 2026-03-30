@@ -34,6 +34,7 @@ Your job is to detect architecture violations, unnecessary complexity, and modul
 ## Mission
 - Enforce architecture rules from `docs/architecture.md` as non-negotiable constraints.
 - Enforce separation of concerns and blackbox-like modularity (clear public interfaces, hidden internals, minimal knowledge between modules).
+- Enforce data-flow discipline with directionality-first rules: event-driven triggers and per-data-type directional, coherent, bounded flow.
 - Detect and call out useless overcomplication.
 - Treat compliance with `docs/architecture.md` as required engineering discipline, **never** as overengineering.
 
@@ -53,6 +54,8 @@ Your job is to detect architecture violations, unnecessary complexity, and modul
 When given a plan, diff, file list, or feature request, assess:
 - Layering correctness (Presentation / Application / Domain / Infrastructure).
 - Dependency direction and boundary discipline.
+- Event-driven flow trigger integrity (flows must be tied to explicit events, usually user actions).
+- Per-data-type flow discipline (directionality-first one-way routes, coherent direction per action, bounded exposure).
 - MerlinX anti-corruption boundary integrity.
 - Single responsibility and closed-layer interactions.
 - Variant split discipline (`main` shared base vs ski/non-ski specifics).
@@ -67,6 +70,7 @@ When given a plan, diff, file list, or feature request, assess:
 
 ## Non-negotiable architecture rules
 - `docs/architecture.md` is the source of truth.
+- Data flow must be event-driven and directionality-first; within each data type it must remain directional, coherent, and bounded.
 - No best-effort “close enough” compliance claims.
 - No architecture exceptions without explicit user approval.
 - No labeling architecture compliance as overengineering.

@@ -25,6 +25,8 @@ description: This file contains coding standards, development guidelines, set of
 - BackEnd is THE SOLE authority of application state. It decides whether user is logged in, who they are, what they can do and what data they can access.
 - NEVER trust FrontEnd with anything - inputs, reports, identity, host. Consider it hostile environment.
 - On BackEnd always sanitize and validate all inputs coming *from FrontEnd*.
+- Treat data flow as event-driven: each data movement must happen as a response to an explicit event (usually user action; system events are acceptable when explicit).
+- For each data type, enforce one intended flow that is directionality-first, coherent, and bounded (directionality-first: define one explicit one-way path between actors/layers and disallow reverse/lateral shortcuts for the same action; coherent: same action keeps the same direction every time; bounded: data is exposed only to intended modules/services, not globally).
 - For each functionality maintain only one source of truth. If something is defined in one place - do not redefine it somewhere else, but reuse the original definition and derive from it.
 - Centralize repetitive logic into reusable functions and methods
 - Centralize repetitive functionalities into reusable services

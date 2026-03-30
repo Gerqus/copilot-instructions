@@ -66,6 +66,7 @@ When running live applications (servers, backtests, training loops, monitoring t
 - Thinking: Always think before acting. Do externaliz thoughts/self-reflections. Double chceck your thinking critically, in order to come to robust conclusions.
 - Retry: On failure, retry internally up to 3 times. If still failing, log error and mark FAILED.
 - Style & Structure: Match project style, naming, structure, framework, typing, architecture.
+- Data Flow Discipline: Directionality-first. Build data movement as event-driven and, per data type, directional, coherent, and bounded. Directional (primary) means one explicit one-way route (e.g., user -> backend -> external provider -> backend, controller -> template, lower layer service -> higher layer service) with no reverse/lateral shortcuts for the same action. Coherent means same action keeps the same direction. Bounded means data of that type is available only where intentionally needed.
 - No Assumptions: Verify everything by reading files.
 - Fact Based: No speculation. Use only verified content from files.
 - Context: Search target/related symbols. If many files, batch/iterate.

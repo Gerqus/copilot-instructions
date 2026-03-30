@@ -1,6 +1,6 @@
 ---
 name: architecture-compliance-check
-description: 'Verify layering violations, dependency direction, MerlinX ACL boundary integrity, and separation of concerns against docs/architecture.md.'
+description: 'Verify layering violations, dependency direction, event-driven directionality-first data flow (directional, coherent, bounded), MerlinX ACL boundary integrity, and separation of concerns against docs/architecture.md.'
 argument-hint: 'Code files or modules to check, e.g. "Infrastructure layer" or list of changed files'
 user-invocable: true
 metadata: {
@@ -29,7 +29,9 @@ metadata: {
 4. Verify MerlinX anti-corruption boundary (Infrastructure only, no wire DTOs exposed to upper layers)
 5. Assess separation of concerns: each module has single responsibility
 6. Check for blackbox modularity: clear public interfaces, hidden internals
-7. Cross-reference with `docs/architecture.md` for any violations
+7. Validate event-driven flow integrity: data movement is triggered by explicit events (usually user actions)
+8. Validate per-data-type flow discipline with directionality-first priority: one-way directional route first, then coherent direction per action and bounded exposure
+9. Cross-reference with `docs/architecture.md` for any violations
 
 ## Output format
 - **Compliance Verdict**: COMPLIANT | NON-COMPLIANT
@@ -44,4 +46,5 @@ metadata: {
 - All file paths analyzed against layering rules
 - All identified violations have evidence trails
 - MerlinX boundary integrity confirmed or flagged
+- Event-driven and directionality-first per-data-type flow discipline (directional, coherent, bounded) confirmed or flagged
 - Compliance verdict is explicit

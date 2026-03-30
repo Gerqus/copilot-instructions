@@ -12,6 +12,11 @@ description: This file contains instructions for architecture organisation and m
 - Use closed layers approach where each layer can only interact with the layer directly below it. This helps to maintain a clear separation of concerns and reduces dependencies between layers.
 - A fall-through interaction is discouraged, where a request can pass through multiple layers. Each layer should be meaningful. If it's not, consider changing problem solution approach.
 - Define clear interfaces for each module or service to facilitate communication and integration.
+- Treat data flow as event-driven: data movement must start from an explicit event (usually user action; explicit system events are acceptable).
+- For each data type, directionality is the primary rule; then enforce coherence and bounds:
+  - Directional (primary): one explicit one-way route between actors/layers (e.g., user -> backend -> external provider -> backend, controller -> template, lower layer service -> higher layer service). Do not allow reverse or lateral shortcuts for the same action.
+  - Coherent: for the same action, flow direction is consistent every time.
+  - Bounded: data flows only through intended boundaries and modules, not as globally available state.
 - The following layers are recommended (from top to bottom):
   - Presentation/UI Layer: Handles user interface and user experience, produces what will than face the user. Examples: view templates, view controllers
   - Business Layer: Manages application workflows.
