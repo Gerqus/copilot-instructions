@@ -115,7 +115,7 @@ The plan should reflect:
 - Explicit scope boundaries — what's included and what's deliberately excluded
 - Reference decisions from the discussion
 - Leave no ambiguity
-- **Architecture Validation**: Run Architecture guard subagent against the draft plan and persist results to `.agents/session/planner-arch-review-<conversationId>.md`. If verdict is NON-COMPLIANT, revise the plan before presenting to user. Do not skip this step.
+- **Architecture Validation**: use `planner-arch-review<conversationId>.md` memory file. If absent - run own Architecture Guard subagent against the draft plan and/or committed implementation intent and persist results to `.agents/session/planner-arch-review-<conversationId>.md`. If verdict is NON-COMPLIANT, revise the plan before presenting to user. Do not skip this step.
 - **Business Analysis**: Where applicable, delegate to Business Analyst subagent to produce a final-goal Definition of Done grounded in current app state, user impact, and UX outcome only (persisted to `.agents/session/dod-<conversationId>.md`). This DoD will be used by Verifier during acceptance validation.
 
 Save the comprehensive plan document to `.agents/session/plan-<conversationId>.md` via workspace session files under `.agents/session/`, then show the scannable plan to the user for review. You MUST show plan to the user, as the plan file is for persistence only, not a substitute for showing it to the user.
