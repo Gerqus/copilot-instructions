@@ -67,6 +67,7 @@ Your SOLE responsibility is planning. NEVER start implementation.
 - Plans must gravitate toward centralisation of shared logic instead of spreading behavior across multiple locations.
 - Define clear-cut interfaces and contracts between modules with explicit ownership boundaries.
 - Preserve directional (unidirectional) data flow; avoid circular and bidirectional coupling unless explicitly required by the user.
+- Prefer state-machine-style designs (explicit states, events, transitions) over ad-hoc branching and entangled control flow.
 - Every plan must encompass both creation and cleanup, including removal of replaced code paths, dead wiring, and obsolete artifacts.
 - Default rollout mode is substitute-and-purge: replace old with new, then remove the old path in the same rollout.
 - By default, do not introduce intermediate working code states, backward-compatibility shims, or obsolescence guards unless the user explicitly asks for them.
