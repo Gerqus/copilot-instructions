@@ -27,6 +27,7 @@ This directory is the Codex-native counterpart of the GitHub Copilot instruction
 - `/home/projekty/copilot-instructions/agents/Planner.old.md` -> `codex/skills/planner-old/SKILL.md`
 - `/home/projekty/copilot-instructions/agents/Problem resolution.agent.md` -> `codex/skills/problem-resolution/SKILL.md`
 - `/home/projekty/copilot-instructions/agents/Production incident triage.agent.md` -> `codex/skills/production-incident-triage/SKILL.md`
+- `/home/projekty/copilot-instructions/agents/Product Owner.agent.md` -> `codex/skills/product-owner/SKILL.md`
 - `/home/projekty/copilot-instructions/agents/Programmer.agent.md` -> `codex/skills/programmer/SKILL.md`
 - `/home/projekty/copilot-instructions/agents/Root-cause analyzis.agent.md` -> `codex/skills/root-cause-analyzis/SKILL.md`
 - `/home/projekty/copilot-instructions/agents/Tester.agent.md` -> `codex/skills/tester/SKILL.md`

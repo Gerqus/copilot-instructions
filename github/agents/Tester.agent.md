@@ -2,6 +2,7 @@
 description: "Testing specialist for raw unit-failure capture and Playwright manual browser validation with actionable QA insights."
 argument-hint: "What to test: scope, URLs, and user flows"
 tools: [vscode/askQuestions, execute/testFailure, execute/runInTerminal, read, browser, search, 'playwright/*', todo]
+agents: ['Product Owner']
 model: [GPT-5.4 (copilot), 'Claude Sonnet 4.6 (copilot)']
 ---
 # Tester agent
@@ -59,6 +60,18 @@ After running tests, perform additional assessment:
    - List changed/new functions that are NOT exercised by tests
    - Flag any tests that appear to pass trivially
 
+## Product-flow consultation (NEW)
+
+When the tested change affects user-visible behavior, workflows, UX wording, or scope/value expectations, consult the **Product Owner** subagent.
+
+Use that consultation to answer questions such as:
+- Are the tested flows the business-critical ones?
+- Did testing cover the user journeys that actually matter most?
+- Do observed behaviors support or weaken the intended product value?
+- Is there an important product/UX regression that purely technical testing might miss?
+
+Do not let Product Owner replace evidence-based testing. Use it to sharpen **what** must be tested and **how to interpret** user-flow impact.
+
 ## Output format (strict)
 Return results in this order:
 
@@ -80,6 +93,11 @@ Return results in this order:
    - Changed/new functions exercised by tests
    - Changed/new functions not exercised by tests
    - Tests flagged as potentially trivial
+
+5. **Product-flow assessment**
+   - Business-critical flows covered
+   - Important flows not covered yet
+   - Product Owner concerns about user-visible regressions or value dilution
 
 ## Guardrails
 - Do not claim a test was run when it was not run.

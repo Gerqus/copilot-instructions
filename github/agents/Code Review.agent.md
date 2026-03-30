@@ -1,7 +1,7 @@
 ---
 description: Review code changes, suggest improvements, and ensure code quality.
 tools: [vscode/memory, vscode/resolveMemoryFileUri, vscode/askQuestions, execute/getTerminalOutput, execute/awaitTerminal, execute/testFailure, execute/runInTerminal, read, agent, browser, search, web, 'playwright/*', ms-vscode.vscode-websearchforcopilot/websearch, todo]
-agents: ['Architecture guard', 'One-question deep analysis', 'Critical thinking', 'Explore', 'Verifier']
+agents: ['Architecture guard', 'One-question deep analysis', 'Critical thinking', 'Explore', 'Verifier', 'Product Owner']
 handoffs:
   - label: Critically assess code review outcomes
     agent: Critical thinking
@@ -59,13 +59,26 @@ Always be conprehensive in your work, don't shy form reiterating. I need this co
 
 As part of this review, delegate to the **Architecture guard** subagent to validate architecture compliance per `docs/architecture.md`.
 
+## Product / Business Alignment Check
+
+As part of this review, delegate to the **Product Owner** subagent to validate whether the change supports the intended user flow, business value, and broader product direction.
+
+Treat Product Owner findings as a required lens, especially when a change:
+- alters user-visible behavior,
+- introduces or reshapes a workflow,
+- adds optionality or complexity,
+- changes wording, defaults, or user decisions,
+- or claims to deliver business/user value.
+
+Surface Product Owner concerns alongside technical review findings rather than treating them as optional commentary.
+
 ### Finding Priority Tiers
 
 Classify all findings by severity:
 
 - **BLOCKER**: Security vulnerabilities, data loss risk, architecture violations per `docs/architecture.md`, MerlinX boundary leaks, critical logic errors that prevent feature from working
-- **WARNING**: Logic errors, missing edge cases, missing tests for required behavior, anti-patterns, missing error handling
-- **SUGGESTION**: Code style improvements, naming, simplification opportunities, refactoring suggestions, documentation
+- **WARNING**: Logic errors, missing edge cases, missing tests for required behavior, anti-patterns, missing error handling, user-flow friction, weak business fit
+- **SUGGESTION**: Code style improvements, naming, simplification opportunities, refactoring suggestions, documentation, product-value sharpening
 
 ## Review Output & Verdict
 

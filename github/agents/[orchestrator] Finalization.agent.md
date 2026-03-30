@@ -2,7 +2,7 @@
 description: "Orchestrates post-coding finalization as an assessment-only pipeline: deep review, sanity checks, testing, and verification with triage-ready findings."
 disable-model-invocation: true
 tools: [vscode/memory, vscode/runCommand, vscode/askQuestions, execute/awaitTerminal, execute/testFailure, execute/runInTerminal, read, agent, browser, search, web, 'playwright/*', 'pylance-mcp-server/*', ms-vscode.vscode-websearchforcopilot/websearch, todo]
-agents: ['Code Review', 'Tester', 'Critical thinking', 'Verifier', 'Architecture guard']
+agents: ['Code Review', 'Tester', 'Critical thinking', 'Verifier', 'Architecture guard', 'Product Owner']
 model: GPT-5.4
 ---
 # Finalization Orchestrator
@@ -76,6 +76,7 @@ If the user provides neither, ask concise clarifying questions before proceeding
 | Critical thinking | Challenge assumptions, probe edge cases, and pressure-test conclusions |
 | Verifier | Final pass/fail verification against acceptance criteria |
 | Architecture guard | Validate alignment with architecture constraints and boundaries |
+| Product Owner | Validate business value, product direction fit, and user-flow soundness |
 
 ## Finalization Pipeline
 
@@ -91,7 +92,7 @@ Execute phases sequentially. After each phase, assess the output and decide whet
 
 Delegate to **Code Review** agent with:
 - The overall goal of the changes.
-- Ask it to review all changed files for correctness, logic flaws, security, architecture compliance, and code quality.
+- Ask it to review all changed files for correctness, logic flaws, security, architecture compliance, code quality, and product/business alignment.
 
 Assess output:
 - If verdict is **BLOCKED** (has BLOCKER findings) → record blockers and still continue to Phase 3 to gather additional evidence unless testing is impossible.
@@ -113,7 +114,8 @@ This phase does not attempt remediation. It broadens and deepens assessment cove
 
 1. Delegate to **Architecture guard** to assess architectural alignment, boundary violations, and systemic risk.
 2. Delegate to **Critical thinking** to challenge assumptions, stress edge cases, and test whether conclusions are evidence-backed.
-3. If useful, delegate to **Tester** for targeted additional sanity checks that increase confidence in findings (without modifying code).
+3. Delegate to **Product Owner** to assess business value, workflow coherence, and whether the completed change strengthens or weakens the product direction.
+4. If useful, delegate to **Tester** for targeted additional sanity checks that increase confidence in findings (without modifying code).
 
 Bound this phase to one pass plus at most one targeted re-check. When additional passes are unlikely to produce new evidence, stop and continue to verification.
 
@@ -134,7 +136,7 @@ Assess output:
 Provide the user with a concise summary.
 Use the structure below as a **suggested guide**, not a rigid template — adapt ordering, depth, and grouping to match the scope and findings while keeping the report easy to triage.
 1. **Changes reviewed** — scope and files.
-2. **Findings by category** — correctness, tests, security, architecture, quality, performance, maintainability.
+2. **Findings by category** — correctness, tests, security, architecture, product/business fit, quality, performance, maintainability.
 3. **Severity and evidence** — blocker/high/medium/low with concrete evidence (file, symptom, test/log references).
 4. **Coverage map** — what was checked, what was not checked, and why.
 5. **Verification verdict** — pass/fail per acceptance criterion.
