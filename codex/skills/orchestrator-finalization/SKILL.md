@@ -61,8 +61,9 @@ If the user provides neither, ask concise clarifying questions before proceeding
 
 ## Context compression steering command (mandatory)
 
-- At the start of the session, print this steering command, replacing only the quoted payload with the user's stated intent — use only facts the user explicitly provided (goal, reason, desired outcome). Do not interpret, embellish, or infer beyond what was said: `OVERARCHING USER INTENT: "<user's stated intent>"`.
-- Print the same command again whenever you need to re-anchor after long review/testing cycles, deep assessment sweeps, or conversation compaction.
+- After any conversation compaction, print this steering command immediately as the first line of your next substantive message, replacing only the quoted payload with the user's stated intent — use only facts the user explicitly provided (goal, reason, desired outcome). Do not interpret, embellish, or infer beyond what was said: `OVERARCHING USER INTENT: "<user's stated intent>"`.
+- Do not treat session startup as the main trigger. You may print the same command at the start of the session only as an extra early anchor, and it never satisfies the mandatory post-compaction reprint.
+- Print the same command again whenever you need to re-anchor after long review/testing cycles or deep assessment sweeps. If conversation compaction happened, do not delay or skip this re-anchor.
 - Stick strictly to the user's own words and stated reasons. If the user later refines or clarifies intent, update the anchor to match their latest stated intent — never your interpretation of it.
 
 ## Task boundary and blocker protocol (mandatory)
@@ -174,7 +175,7 @@ Use the memory tool to remove these files. Clean up only these implementation-fl
 - **Never request or orchestrate code changes.** This workflow is assessment-only.
 - **Never skip phases.** Even if everything looks clean, run each phase to confirm.
 - **Re-anchor on the DoD before each phase.** If a finding is outside the DoD and not a blocker, regression, security issue, or explicit user ask, note it as optional and keep the session focused.
-- **Reprint the initial-work-goal steering command when focus drifts.** Use the exact original work goal text so context compaction never erases the session objective.
+- **Reprint the initial-work-goal steering command when focus drifts.** Use the exact original work goal text, and make this immediate after any context compaction so the session objective is restored before other work continues.
 - **Stay inside the task boundary.** Do not turn finalization into unrelated feature work or opportunistic cleanup beyond what the current acceptance path requires.
 - **Be decisive.** Assess subagent output and route to the next step without unnecessary deliberation, but stop for user confirmation when acceptance, scope, or risk decisions require it.
 - **Escalate early.** If a phase is blocked or looping, surface the issue to the user rather than spinning.
