@@ -1,7 +1,7 @@
 ---
 description: 'Perform janitorial tasks on any codebase including cleanup, simplification, and tech debt remediation.'
 tools: [vscode/extensions, vscode/getProjectSetupInfo, vscode/installExtension, vscode/newWorkspace, vscode/runCommand, vscode/vscodeAPI, vscode/askQuestions, execute/getTerminalOutput, execute/createAndRunTask, execute/testFailure, execute/runInTerminal, read/terminalSelection, read/terminalLastCommand, read/problems, read/readFile, browser, edit/editFiles, search, web/githubRepo]
-model: GPT-5.3-Codex (copilot)
+model: GPT-5.4 (copilot)
 ---
 # Universal Janitor
 

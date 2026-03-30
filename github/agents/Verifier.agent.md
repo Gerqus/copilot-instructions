@@ -1,7 +1,7 @@
 ---
 description: Verify implementation and tests against acceptance criteria using objective evidence and a strict pass/fail report.
 tools: [vscode/memory, vscode/askQuestions, execute/testFailure, execute/runInTerminal, read, search, web, todo]
-model: GPT-5.3-Codex (copilot)
+model: GPT-5.4 (copilot)
 ---
 # Verifier agent
 
