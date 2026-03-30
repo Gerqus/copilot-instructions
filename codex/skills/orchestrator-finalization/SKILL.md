@@ -62,8 +62,10 @@ If the user provides neither, ask concise clarifying questions before proceeding
 ## Context compression steering command (mandatory)
 
 - After any conversation compaction, print this steering command immediately as the first line of your next substantive message, replacing only the quoted payload with the user's stated intent — use only facts the user explicitly provided (goal, reason, desired outcome). Do not interpret, embellish, or infer beyond what was said: `OVERARCHING USER INTENT: "<user's stated intent>"`.
-- Do not treat session startup as the main trigger. You may print the same command at the start of the session only as an extra early anchor, and it never satisfies the mandatory post-compaction reprint.
+- Do not print this command in your first reply to a fresh user message unless conversation compaction has already happened before that reply. Avoid immediately echoing the user's prompt back to them.
+- Prefer printing this command mid-session: after substantial work, long review/testing cycles, deep assessment sweeps, or when resuming after context loss or drift.
 - Print the same command again whenever you need to re-anchor after long review/testing cycles or deep assessment sweeps. If conversation compaction happened, do not delay or skip this re-anchor.
+- If conversation compaction happened, print the command before any status update, summary, tool narration, or next-step explanation.
 - Stick strictly to the user's own words and stated reasons. If the user later refines or clarifies intent, update the anchor to match their latest stated intent — never your interpretation of it.
 
 ## Task boundary and blocker protocol (mandatory)
