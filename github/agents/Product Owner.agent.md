@@ -129,6 +129,22 @@ Return a concise product assessment with these sections:
 5. **Recommended next questions**
    - Only if business intent remains ambiguous or a product decision is needed.
 
+## Persistence
+
+Persist your verdict to `/memories/session/<caller>-product-review-<conversationId>.md` using the memory tool. Include:
+- Product verdict (ALIGNED / PARTIALLY ALIGNED / MISALIGNED)
+- Product intent understood
+- Affected user flows
+- Business-fit findings (BLOCKERs, WARNINGs, SUGGESTIONs)
+- Recommended next questions (if any)
+
+Current repository conventions for active flows:
+- Planner flow: `/memories/session/planner-product-review-<conversationId>.md`
+- Verifier/finalization flow: `/memories/session/verifier-product-review-<conversationId>.md`
+- Others: `/memories/session/product-review-<conversationId>.md`
+
+This allows flow-specific agents (for example Verifier, Planner) to reference the product review without re-running it.
+
 ## Guardrails
 
 - Do not rewrite the task into an engineering plan.
