@@ -125,8 +125,8 @@ Once context is clear, draft a comprehensive implementation plan.
 
 The plan should reflect:
 - Structured concise enough to be scannable and detailed enough for effective execution
-- Step-by-step implementation with explicit dependencies — mark which steps can run in parallel vs. which block on prior steps
-- For plans with many steps, group into named phases that are each independently verifiable
+- **Phase-based structure (mandatory)**: Every plan must be organised into phases. **Phase 1 is always a tests-only phase** — write all tests that subsequent phases must satisfy; no production code in Phase 1. Each subsequent phase is a self-contained, independently verifiable implementation unit that makes a defined subset of Phase 1 tests go green. No phase may introduce backward-compatibility shims, obsolescence guards, or fallback paths.
+- Step-by-step implementation within each phase with explicit dependencies — mark which steps can run in parallel vs. which block on prior steps
 - Verification steps for validating the implementation, both automated and manual
 - Critical architecture to reuse or use as reference — reference specific functions, types, or patterns, not just file names
 - Critical files to be modified (with full paths)
@@ -156,16 +156,20 @@ Keep iterating until explicit approval or handoff.
 
 {TL;DR - what, why, and how (your recommended approach).}
 
-**Steps**
-1. {Implementation step-by-step — note dependency ("*depends on N*") or parallelism ("*parallel with step N*") when applicable}
-2. {For plans with 5+ steps, group steps into named phases with enough detail to be independently actionable}
-
-**Tests** (TDD approach)
-- Test 1: {test that first exposes the current bug or missing feature behavior and fails for the correct functional reason}
-- Test 2: {edge case or error handling}
-- Red → Green expectation: confirm failing test first, then implement the minimal fix/feature change promptly after.
+**Phase 1 — Tests** *(tests-only; no production code; all tests must be confirmed failing before Phase 2 begins)*
+- Test 1: {test that first exposes the missing feature or bug; must fail for the correct functional reason}
+- Test 2: {edge case or error-handling scenario}
+- Red-only gate: commit Phase 1 and confirm every test fails before proceeding.
 - Where to write: `tests/` directory following existing test patterns
-- Verification: run `bash tests/run_all.sh` to confirm tests pass after implementation
+
+**Phase 2 — {Name}** *(depends on Phase 1; self-contained; closes when its target tests go green)*
+1. {Implementation step — note parallelism ("*parallel with step N*") or dependency ("*depends on step N*") when applicable}
+2. {…}
+- Verification: specified Phase 1 tests pass; no new test files; no backward-compatibility shims or fallback paths introduced
+
+**Phase N — {Name}** *(depends on Phase N-1; self-contained)*
+1. {…}
+- Verification: {exact tests that must go green; confirm no regressions}
 
 **Architecture Compliance**
 - Run Architecture guard subagent before implementation
