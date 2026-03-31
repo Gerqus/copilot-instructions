@@ -14,6 +14,7 @@ This directory is the Codex-native counterpart of the GitHub Copilot instruction
 ## Global Guidance
 - Core TDD directive: `references/copilot-instructions.md`
 - Language/framework guidance: `references/instructions/*.instructions.md`
+- Apply the change-planning thoroughness rule from `references/copilot-instructions.md`: reassess touched architecture, flow, ownership, and contracts, and explicitly remove legacy logic that the new design makes obsolete.
 
 ## Agent Counterparts
 - `/home/projekty/copilot-instructions/agents/Architecture guard.agent.md` -> `codex/skills/architecture-guard/SKILL.md`

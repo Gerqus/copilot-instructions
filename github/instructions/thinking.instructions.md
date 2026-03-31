@@ -4,14 +4,12 @@ description: This file contains thinking approach instructions. It should be app
 ---
 Before starting work, explain to yourself what is the scope of request and work, what are the dependencies and main subject. If unsure - deduce from whole project context and best coding practices. Get to know the files and code in scope.
 
-Always question your assumptions and logic from previous messages. If you are not sure about something, ask for clarification, cross-check with other files, strive for understanding the whole context.
+Strive for understanding the whole context.
 
-When planning your work, first think through the whole task in your mind. Explain to yourself what needs to be done, why and how. Consider edge cases and possible pitfalls. Also - perform a dry code modifications in your mind - imagine how you would change the code step by step to achieve the goal. Visualize the code logic flow and data flow and what your changes do with them.
+When planning your work, perform a dry code modifications in your mind - imagine how you would change the code step by step to achieve the goal. Visualize the code logic flow and data flow and what your changes do with them.
 
-Don't shy from backtracting and second-guessing your own logic. If something seems off, question it. The goal is to be thorough and robust, not quick.
-
-After that critically validate your explanations, assumptions and rationales. Adjust your logic again.
-
-When tests are part of the work, reason in TDD order: define a test that surfaces the bug or missing behavior first, verify it fails for the right reason, then proceed with the smallest implementation change to move from red to green.
+When tests are part of the work, reason in TDD order: define a test that surfaces the bug or missing behavior first, verify that failure reveals in correct place lack of logic that is yet to be implemented, then proceed with the smallest implementation change to move from red to green.
 
 In your thinking apply Occam's Razor - prefer the simplest solution that works.
+
+After making a decision, change in code or approach, consider reasons for it from project and task perspective and potential consequences of introducing it. This is your sanity check throughout the work. Use it frequently and don't shy from adjusting changes, code of approach at question according to this check reasoning.

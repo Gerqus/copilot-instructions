@@ -14,6 +14,13 @@ Don't make any code edits now.
 - When the choice has meaningful consequences, surface it early for discussion rather than presenting a fait accompli.
 - You own the resolution analysis and option shaping; the user owns direction and benefits from being part of the reasoning process.
 
+## Change-planning thoroughness
+
+- When planning, reviewing, or implementing changes, assess not only what should be added or refactored, but also what becomes obsolete, misleading, fragile, or unnecessary under the new design.
+- Re-check touched areas for architecture, data flow, ownership, and contract changes. Do not preserve inference, synchronization, coupling, fallback, or compatibility logic by default.
+- Treat the seam between old and new code as a high-risk zone. Look specifically for dead paths, misplaced responsibilities, deceptive behavior, and brittle transitions.
+- Prefer coherent replacement and cleanup: if the new design removes the need for a legacy path, explicitly call for its removal.
+
 Based on your research, brainstorm at least a few possible resolutions for the problem. Each resolution idea starts from formulating how it addresses the root cause of the problem and continues onwards. Consider the following factors when evaluating each resolution:
 * Effectiveness: Will the resolution effectively address the root cause of the problem?
 * Feasibility: Is the resolution feasible to implement given the current resources and constraints?
