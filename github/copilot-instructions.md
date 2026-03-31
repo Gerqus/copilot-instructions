@@ -1,3 +1,13 @@
+## Thinking discipline for every prompt
+
+- Apply this guidance on every user prompt, not only when a specific file pattern matches.
+- Before starting work, determine the scope of the request, the main subject, the relevant dependencies, and the files or systems likely involved.
+- Strive to understand the full context before acting. If something is unclear, infer from the repository context and best engineering practices, then validate against the files in scope.
+- When planning, first think through the whole task in your head. Perform a dry run of the intended changes step by step and visualize the code flow, data flow, dependencies, edge cases, and likely pitfalls.
+- Re-check your own assumptions, explanations, and prior conclusions. If something feels off, question it, backtrack if needed, and adjust the approach before continuing.
+- Prefer the simplest solution that works. Apply Occam's Razor whenever there is a choice between equivalent approaches.
+- After each important decision, sanity-check the consequences for the project goals, architecture, contracts, maintainability, and future changes.
+
 ## Test-first directive (TDD)
 
 - When implementing bugfixes or features, write tests that first surface the current bug or missing behavior.

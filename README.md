@@ -16,9 +16,13 @@ Suggested way of enabling is to:
     - example value: ~/copilot-instructions/agents
 - make sure to enable them in the config
 
+If you want guidance that is active on **every chat prompt**, not only when a file instruction matches, also place or symlink `github/copilot-instructions.md` into the target project's `.github/copilot-instructions.md`. That file is the workspace-level always-on instruction surface for GitHub Copilot Chat.
+
 Alternatively you can create symlinks from this repository folders to your project `.github` folder, eg.:
 `ln -s <FULL-absolute-path-to-this-repo>/agents <FULL-absolute-path-to-your-project>/.github/agents`
 Be mindful of trailing slashes and relative paths when creating symlinks.
+
+When using the symlink approach, also symlink `github/copilot-instructions.md` to `<project>/.github/copilot-instructions.md` if you want the thinking guidance to apply on every user prompt.
 
 
 # Codex line
