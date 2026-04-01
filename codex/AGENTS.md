@@ -93,5 +93,6 @@ Declare tool dependencies in Codex skill frontmatter under `available_tools`.
 - `skills/conversation-id-generator/SKILL.md` -> `codex/skills/conversation-id-generator/SKILL.md`
 - `skills/core-test-failure-output/SKILL.md` -> `codex/skills/core-test-failure-output/SKILL.md`
 - `skills/decision-log-audit/SKILL.md` -> `codex/skills/decision-log-audit/SKILL.md`
+- `skills/sanity-check/SKILL.md` -> `codex/skills/sanity-check/SKILL.md`
 - `skills/security-gate/SKILL.md` -> `codex/skills/security-gate/SKILL.md`
 - `skills/test-meaningfulness-audit/SKILL.md` -> `codex/skills/test-meaningfulness-audit/SKILL.md`

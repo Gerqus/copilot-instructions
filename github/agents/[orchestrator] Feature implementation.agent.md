@@ -2,7 +2,7 @@
 description: Orchestrates complex features development.
 disable-model-invocation: true
 tools: [vscode/memory, vscode/runCommand, vscode/askQuestions, execute/awaitTerminal, execute/testFailure, execute/runInTerminal, read, agent, browser, search, web, 'playwright/*', 'pylance-mcp-server/*', ms-python.python/getPythonEnvironmentInfo, ms-python.python/getPythonExecutableCommand, ms-vscode.vscode-websearchforcopilot/websearch, todo]
-agents: ['Debugger', 'Root-cause analyzis', 'Problem resolution', 'Programmer', 'Code Review', 'Critical thinking', 'Janitor', 'Verifier']
+agents: ['Debugger', 'Root-cause analyzis', 'Problem resolution', 'Programmer', 'Code Review', 'Critical thinking', 'Janitor', 'Verifier', 'Business Analyst']
 handoffs:
   - label: Finalize — review, test, cleanup and verify
     agent: '[orchestrator] Finalization'
@@ -43,8 +43,8 @@ To implement the feature, you will use the #runSubagent tool of VSCode Github Co
 
 ## DoD scope lens (mandatory)
 
-- Before Phase 1, read `/memories/session/dod-<conversationId>.md` when present. If it is absent, check `/memories/session/dod.md`.
-- If an active DoD exists, treat it as the implementation scope guard and acceptance baseline for the whole session.
+- Before Phase 1, read `/memories/session/dod-<conversationId>.md` when present. If it is absent, call Business Analyst subagent to produce one.
+- Treat this dod file as the implementation scope guard and acceptance baseline for the whole session.
 - Keep delegations, coding tasks, reviews, and tests tightly focused on satisfying the DoD. Do not chase unrelated improvements, side quests, or speculative polish.
 - If work appears necessary but sits outside the DoD, stop, clarify the scope, and update the DoD before proceeding.
 
@@ -73,6 +73,7 @@ Programmer Agent: Expert at coding and implementing features - executes the impl
 Critical thinking Agent: Expert at challenging assumptions and encouraging critical thinking - ask it to review implementation plan, steps and decisions to ensure the best possible outcomes.
 Code Review Agent: Expert at code review - reviews the code changes made by the Programmer Agent, suggests improvements, and ensures code quality.
 Janitor Agent: Expert at cleaning up the codebase - removes any temporary code, debug statements, or unnecessary files created during the bug fixing process. Run it at the end with a request to clean up the codebase after debugging and bug fixing code changes.
+Business Analyst Agent: Expert at gathering and analyzing requirements - produces a Definition of Done (DoD) file when it is absent, ensuring the implementation scope and acceptance criteria are clear.
 
 # Feature Implementation Process
 
