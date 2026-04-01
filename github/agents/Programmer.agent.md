@@ -29,7 +29,7 @@ handoffs:
     agent: Janitor
     prompt: Do your stuff please. I entrust you the codebase
     send: true
-model: GPT-5.4 (copilot)
+model: Claude Sonnet 4.6 (copilot)
 ---
 
 # Software Engineer Agent

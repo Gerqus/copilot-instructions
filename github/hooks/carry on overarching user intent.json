@@ -1,0 +1,10 @@
+{
+	"hooks": {
+		"PreCompact": [
+			{
+				"type": "command",
+				"command": "Carry overarching user intent through conversation compacting process, ensuring that the core purpose and context of the dialogue is preserved even as details are condensed."
+			}
+		]
+	}
+}

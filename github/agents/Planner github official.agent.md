@@ -156,16 +156,16 @@ Keep iterating until explicit approval or handoff.
 
 {TL;DR - what, why, and how (your recommended approach).}
 
-**Phase 1 — Tests** *(tests-only; no production code; all tests must be confirmed failing before Phase 2 begins)*
-- Test 1: {test that first exposes the missing feature or bug; must fail for the correct functional reason}
-- Test 2: {edge case or error-handling scenario}
-- Red-only gate: commit Phase 1 and confirm every test fails before proceeding.
+**Phase 1 — Tests** *(tests-only; no production code; all tests must be confirmed failing by exposing pinpoint bugs before Phase 2 begins)*
+- Test 1: {test that first exposes the missing feature or bug; must fail for the correct functional reason, exposing the bug}
+- Test 2: {add also most important of edge case or error-handling or happy path or red path scenario tests}
+- Red-only gate: commit Phase 1, and before proceeding - confirm every test fails by surfacing the bugs.
 - Where to write: `tests/` directory following existing test patterns
 
 **Phase 2 — {Name}** *(depends on Phase 1; self-contained; closes when its target tests go green)*
 1. {Implementation step — note parallelism ("*parallel with step N*") or dependency ("*depends on step N*") when applicable}
 2. {…}
-- Verification: specified Phase 1 tests pass; no new test files; no backward-compatibility shims or fallback paths introduced
+- Verification: specified Phase 1 tests pass; no new test files; no backward-compatibility shims or fallback paths introduced; no tampering with test assertions, unless you discover a bug or requirements violation in tests themself
 
 **Phase N — {Name}** *(depends on Phase N-1; self-contained)*
 1. {…}

@@ -16,6 +16,52 @@ This directory is the Codex-native counterpart of the GitHub Copilot instruction
 - Language/framework guidance: `references/instructions/*.instructions.md`
 - Apply the change-planning thoroughness rule from `references/copilot-instructions.md`: reassess touched architecture, flow, ownership, and contracts, and explicitly remove legacy logic that the new design makes obsolete.
 
+## Primitive Placement
+
+When adding or modifying guidance, choose the layer that matches scope and enforcement mode:
+
+| Need | Copilot primitive | Codex equivalent | Decision rule |
+|------|-------------------|------------------|--------------|
+| Universal always-on discipline | `github/copilot-instructions.md` | `codex/AGENTS.md` (Global Guidance) | Loaded on every prompt; keep minimal |
+| File/language-scoped rules | `github/instructions/*.instructions.md` + `applyTo` | `codex/references/instructions/` | Passive context; mirror after changes |
+| Specialized multi-step workflow | `github/agents/*.agent.md` | `codex/skills/<name>/SKILL.md` | Register mapping in this file |
+| Focused parameterized task | `github/prompts/*.prompt.md` | `codex/skills/prompt-<name>/SKILL.md` | |
+| On-demand helper workflow | `github/skills/<name>/SKILL.md` | `codex/skills/<name>/SKILL.md` | |
+| Deterministic lifecycle gate | `github/hooks/*.json` | Codex hooks (TBD) | Enforces unconditionally; not guidance |
+
+**Key distinctions:**
+- Instructions are passive context. Skills/Agents drive active, workflow-oriented execution.
+- Skills vs. Agents: same capabilities throughout → Skill. Need context isolation or per-stage tool restriction → Agent.
+- Instructions vs. Hooks: Instructions guide (non-deterministic). Hooks enforce via shell at lifecycle events.
+
+## Ecosystem Dependencies
+
+Agents and skills in this repo assume the following exist in **target projects**:
+
+| Dependency | Used by | Effect if absent |
+|------------|---------|-----------------|
+| `docs/architecture.md` | Architecture guard, Architecture compliance check, Programmer, Code Review | Architecture gate cannot validate |
+| `decisionlog.md` | Decision log audit, Programmer, Orchestrators | Decisions not logged |
+| Test harness | Tester, Programmer, Core test failure output | TDD protocol degrades gracefully |
+| Playwright MCP | Code Review (browser tests), Programmer | Browser test steps skipped |
+
+New agents must add their dependencies to this table.
+
+## Tool and MCP Mapping
+
+Codex tool references for counterparts that rely on MCP servers:
+
+| Capability | Copilot tool | Codex equivalent |
+|------------|-------------|-----------------|
+| Browser automation | `browser` | `mcp__playwright__*` |
+| Python execution | `ms-python.python` | `computer` tool or equivalent |
+| File system | `read`, `edit` | Built-in file tools |
+| Terminal | `execute/runInTerminal` | `shell` or `computer` |
+| Memory/session | `vscode/memory` | `.agents/session/<conversationId>/` files |
+| Agent delegation | `agent` | `spawn_agent`, `send_input`, `wait_agent` |
+
+Declare tool dependencies in Codex skill frontmatter under `available_tools`.
+
 ## Agent Counterparts
 - `/home/projekty/copilot-instructions/agents/Architecture guard.agent.md` -> `codex/skills/architecture-guard/SKILL.md`
 - `/home/projekty/copilot-instructions/agents/Business Analyst.agent.md` -> `codex/skills/business-analyst/SKILL.md`
