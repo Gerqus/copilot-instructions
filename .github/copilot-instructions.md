@@ -18,13 +18,7 @@ This repository is a dual-ecosystem AI instruction set — **Copilot line** (`gi
 
 ## Build and Test
 
-Sync the Codex line after modifying any `github/` source:
-
-```bash
-python3 codex/scripts/sync_codex_line.py
-```
-
-No other build step — files are consumed as-is by AI tools.
+No build step — files are consumed as-is by AI tools.
 
 ## Primitive Placement
 
@@ -71,14 +65,12 @@ Programmer and orchestrators invoke the Architecture guard subagent before imple
 ### Decision logging
 After implementation, assess decisions against 4 criteria (durable, cross-cutting, non-obvious, normative). Log qualifying decisions to `decisionlog.md` via the `decision-log-audit` skill using rule-centric phrasing (one sentence, max two clauses).
 
-### Adding a new agent or skill
-1. Create `github/agents/<name>.agent.md` (agent) or `github/skills/<name>/SKILL.md` (skill) with required frontmatter
-2. Run `python3 codex/scripts/sync_codex_line.py` to generate the Codex counterpart
-3. Verify the mapping appears in `codex/AGENTS.md`
-4. If the agent introduces a new target-project dependency, add it to the Ecosystem Dependencies table above and in `codex/AGENTS.md`
+### Adding a new file-scoped entity
+1. Create relevant md file in `copilot/` with required frontmatter
+2. Map it in `codex/AGENTS.md` and create the Codex counterpart in `codex` if needed
+3. If the agent introduces a new target-project dependency, add it to the Ecosystem Dependencies table above and in `codex/AGENTS.md`
 
 ### MCP server integration
 Declare tool dependencies in agent frontmatter (`tools:` for Copilot, `available_tools` for Codex). When building new agents:
 - Playwright browser automation: use `browser` in Copilot `tools:`; `mcp__playwright__*` namespace in Codex
-- Python execution: use `ms-python.python` in Copilot; Codex `computer` tool or equivalent
 - Always test MCP availability in the target environment before marking it required

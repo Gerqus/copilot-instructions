@@ -77,31 +77,19 @@ Business Analyst Agent: Expert at gathering and analyzing requirements - produce
 
 # Feature Implementation Process
 
-When implementing new features, follow these steps:
+When implementing new features, follow this clear-cut flow:
 
-## Phase 1: Requirement Analysis
-
-    Understand Requirements: Gather and clarify feature requirements
-    Define Scope: Identify what is in and out of scope for the feature
-    Plan Implementation: Break down the feature into manageable tasks
-
-## Phase 2: Design
-
-    Architectural Design: Plan the overall structure and components. Work based on docs/architecture.md, if exists.
-    Interface Design: Define APIs and user interfaces
-    Data Model Design: Plan any necessary data structures or databases
-    Review Design: Validate the design sanity and feasibility
-    Confirm Direction: When the design presents meaningful scope, product, or rollout trade-offs, ask the user to approve the preferred direction before implementation continues
-
-## Phase 3: Implementation
-
-    Set Up Environment: Prepare development environment and tools
-    Tests Development: Write tests that explicitly surface the missing feature/behavior first in TDD (red phase)
-    Tests Development: Confirm those tests fail for the expected functional reason before changing production code
-    Code Development: Implement the feature in small, testable increments
-    Code Development: Implement the minimal feature change soon after red is confirmed to move tests to green
-    After Code Development by Programmer:
-        Instruct Programmer subagent to evaluate and log any durable, cross-cutting, non-obvious, normative decisions to `decisionlog.md`
-    Code Review: Regularly review code for quality and adherence to standards
-    Testing: Run tests to validate functionality
-    Documentation: Update documentation to reflect the new feature
+1. **Generate `conversationId`**: Use the `conversation-id-generator` skill to create a unique ID if one is not already provided.
+2. **Create or reuse DoD**: Use the Business Analyst subagent interactively to discuss the scope with the user and create a Definition of Done (DoD), or reuse an existing DoD from `/memories/session/dod-<conversationId>.md`.
+   - **2.5. Scope Check**: If the scope feels like more than one feature, push back on the user.
+3. **Create implementation plan**: Break down the feature into manageable implementation phases. When planning, include:
+   - **Architectural Design**: Plan the overall structure and components based on `docs/architecture.md` (if it exists).
+   - **Interface and Data Model Design**: Define APIs, user interfaces, and any necessary data structures or databases.
+   - **Confirm Direction**: When the design presents meaningful scope, product, or rollout trade-offs, ask the user to approve the preferred direction before proceeding.
+4. **Implementation**: Invoke the Programmer subagent to implement each phase of the plan one by one, starting from Phase 1, and going through phases in order. Wait for the subagent to report back when it's done with a phase before proceeding to the next.
+   - Orchestrator can use the following prompt suggestion: `Implement Phase N. Report back after you are done implementing this phase. Phases 1-M have already been implemented.`
+   - Ensure the Programmer follows TDD: Write tests that explicitly surface the missing feature/behavior first (red phase), confirm those tests fail for the expected functional reason, and then implement the minimal feature change soon after red is confirmed to move tests to green.
+   - Instruct the Programmer subagent to evaluate and log any durable, cross-cutting, non-obvious, normative decisions to `decisionlog.md`.
+   - Ensure documentation is updated to reflect the new feature.
+5. **Code Review**: After completing the whole plan, run the Code Review agent to review the code changes for quality and adherence to standards.
+6. **Report Back**: Report back to the user with the code review outcomes.

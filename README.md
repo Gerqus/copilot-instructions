@@ -32,6 +32,3 @@ Suggested way of using it:
 - point your Codex project instructions to `codex/AGENTS.md`
 - keep Codex skills in scope from `codex/skills/`
 - use `codex/references/` for shared instruction material
-
-To regenerate Codex assets after changing GitHub-side sources (`agents/`, `prompts/`, `skills/`, `instructions/`), run:
-`python3 codex/scripts/sync_codex_line.py`
