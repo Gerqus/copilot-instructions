@@ -67,13 +67,21 @@ To implement the feature, you will use the #runSubagent tool of VSCode Github Co
 - If you or a delegated subagent discover that scope step-over has already happened, stop any further out-of-scope expansion immediately, resume from the requested feature boundary, and record the step-over so it is disclosed in the later user summary report.
 - If the workflow remains blocked after maximum useful in-scope work is done, report back to the user instead of redirecting the session into neighboring tasks.
 
+## Programmer-first execution policy (mandatory)
+
+- Treat `Programmer` as the default and primary execution path for all implementation work (code, tests, docs tied to implementation phases).
+- Do not perform implementation coding via non-Programmer subagents unless the task is explicitly non-coding (analysis, planning, review, debugging, architecture validation).
+- For every implementation phase, spawn a **new, fresh** `Programmer` subagent instance. Never reuse the same `Programmer` session across phases.
+- If a phase needs rework after feedback/review, spawn another **new** `Programmer` subagent for that rework iteration instead of continuing in the previous one.
+- Keep each `Programmer` invocation tightly scoped to one phase (or one rework iteration), with explicit in/out boundaries and a required report-back.
+
 ## Some agents overview for #runSubagent tool
 
 Problem Resolution Agent: Expert at problem resolution - provides and selects the best implementation for the feature based on the requirements and context.
 Debugger Agent: Expert at investigating unclear current behavior, failures, and execution paths - use it before planning when the existing system behavior is not yet well understood and you need sharper evidence about what the implementation plan must account for.
 Root-cause analyzis Agent: Expert at tracing symptoms back to underlying causes - use it before planning when a feature request is entangled with an existing limitation, regression, or surprising behavior and the plan should address the real cause rather than superficial symptoms.
 Architecture guard Agent: Expert at validating whether the plan actually cleans up structural causes rather than merely hiding them behind local fixes.
-Programmer Agent: Expert at coding and implementing features - executes the implementation plan provided by the Problem Resolution Agent.
+Programmer Agent: Expert at coding and implementing features - executes implementation phases from the approved plan and is the primary delivery engine. Use only phase-scoped delegations, each to **fresh** `Programmer` instance, over broad multi-phase coding runs.
 Critical thinking Agent: Expert at challenging assumptions and encouraging critical thinking - ask it to review implementation plan, steps and decisions to ensure the best possible outcomes.
 Code Review Agent: Expert at code review - reviews the code changes made by the Programmer Agent, suggests improvements, and ensures code quality.
 Janitor Agent: Expert at cleaning up the codebase - removes any temporary code, debug statements, or unnecessary files created during the bug fixing process. Run it at the end with a request to clean up the codebase after debugging and bug fixing code changes.
@@ -99,6 +107,10 @@ When implementing new features, follow this clear-cut flow:
    - **Interface and Data Model Design**: Define APIs, user interfaces, and any necessary data structures or databases.
    - **Confirm Direction**: When the design presents meaningful scope, product, or rollout trade-offs, ask the user to approve the preferred direction before proceeding. Again, on rejection - clarify, update the plan with `Plan` agent, and reconfirm before proceeding. Keep reconfirmation-refinement loop going until you have a clear, agreed-upon plan.
 5. **Implementation**: Invoke the Programmer subagent to implement each phase of the plan one by one, starting from Phase 1, and going through phases in order. Wait for the subagent to report back when it's done with a phase before proceeding to the next. For each phase spawn a NEW `Programmer` subagent with the specific phase implementation prompt, and the same `<conversationId>` to maintain memory context. During implementation:
+   - **Programmer-first default**: Any in-scope implementation change (tests, source code, implementation docs) should be delegated to `Programmer`.
+   - **Fresh instance rule**: Never let one `Programmer` subagent implement multiple phases in one run. Exactly one phase per `Programmer` invocation.
+   - **Fresh rework rule**: If Phase N comes back incomplete or needs adjustments, spawn a new `Programmer` for "Phase N rework" instead of reusing the prior one.
+   - **Strict phase boundary**: Explicitly instruct each `Programmer` to stop after the requested phase and report status, risks, and follow-ups.
    - Orchestrator can use the following prompt suggestion: `Implement Phase N. Report back after you are done implementing this phase. Phases 1-M have already been implemented.`
    - Ensure the Programmer follows TDD: Write tests that explicitly surface the missing feature/behavior first (red phase), confirm those tests fail for the expected functional reason, and then implement the minimal feature change soon after red is confirmed to move tests to green.
    - Instruct the Programmer subagent to evaluate and log any durable, cross-cutting, non-obvious, normative decisions to `decisionlog.md`.
