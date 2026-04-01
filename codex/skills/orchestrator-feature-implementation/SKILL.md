@@ -71,6 +71,8 @@ To implement the feature, you will use the spawn_agent / send_input / wait_agent
 ## Some agents overview for spawn_agent / send_input / wait_agent tool
 
 Problem Resolution Agent: Expert at problem resolution - provides and selects the best implementation for the feature based on the requirements and context.
+Debugger Agent: Expert at investigating unclear current behavior, failures, and execution paths - use it before planning when the existing system behavior is not yet well understood and you need sharper evidence about what the implementation plan must account for.
+Root-cause analyzis Agent: Expert at tracing symptoms back to underlying causes - use it before planning when a feature request is entangled with an existing limitation, regression, or surprising behavior and the plan should address the real cause rather than superficial symptoms.
 Programmer Agent: Expert at coding and implementing features - executes the implementation plan provided by the Problem Resolution Agent.
 Critical thinking Agent: Expert at challenging assumptions and encouraging critical thinking - ask it to review implementation plan, steps and decisions to ensure the best possible outcomes.
 Code Review Agent: Expert at code review - reviews the code changes made by the Programmer Agent, suggests improvements, and ensures code quality.
@@ -84,9 +86,15 @@ When implementing new features, follow these steps:
 
     Understand Requirements: Gather and clarify feature requirements
     Define Scope: Identify what is in and out of scope for the feature
-    Plan Implementation: Break down the feature into manageable tasks
+    Confirm DoD: Align the implementation scope and acceptance baseline before proceeding further
 
-## Phase 2: Design
+## Phase 2: Optional Pre-Plan Analysis
+
+    Assess Need For Deeper Understanding: Before drafting the implementation plan, explicitly check whether current understanding is too shallow to plan well
+    Invoke Analysis Subagents If Needed: Use Debugger, Root-cause analyzis, or Critical thinking when the request depends on unclear current behavior, hidden constraints, unexplained failures, surprising complexity, or non-obvious scope boundaries
+    Convert Findings Into Planning Inputs: Synthesize the discovered risks, constraints, and insights so the implementation plan reflects what actually needs to be covered
+
+## Phase 3: Design
 
     Architectural Design: Plan the overall structure and components. Work based on docs/architecture.md, if exists.
     Interface Design: Define APIs and user interfaces
@@ -94,7 +102,7 @@ When implementing new features, follow these steps:
     Review Design: Validate the design sanity and feasibility
     Confirm Direction: When the design presents meaningful scope, product, or rollout trade-offs, ask the user to approve the preferred direction before implementation continues
 
-## Phase 3: Implementation
+## Phase 4: Implementation
 
     Set Up Environment: Prepare development environment and tools
     Tests Development: Write tests that explicitly surface the missing feature/behavior first in TDD (red phase)
