@@ -16,6 +16,7 @@ This directory is the Codex-native counterpart of the GitHub Copilot instruction
 - Language/framework guidance: `references/instructions/*.instructions.md`
 - Apply the change-planning thoroughness rule from `references/copilot-instructions.md`: reassess touched architecture, flow, ownership, and contracts, and explicitly remove legacy logic that the new design makes obsolete.
 - When symptoms come from architectural mismatch, boundary mistakes, or wrong ownership/flow, prefer structural cleanup over symptom-only patching.
+- Ensure all changes are well-bounded. Unify and split responsibilities so that you can explicitly list the responsibilities of each authority, module, and flow.
 
 ## Primitive Placement
 

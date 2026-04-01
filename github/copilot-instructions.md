@@ -22,3 +22,4 @@
 - Re-check touched areas for architecture, data flow, ownership, and contract changes. Do not preserve inference, synchronization, coupling, fallback, or compatibility logic by default.
 - Treat the seam between old and new code as a high-risk zone. Look specifically for dead paths, misplaced responsibilities, deceptive behavior, and brittle transitions.
 - Prefer coherent replacement and cleanup: if the new design removes the need for a legacy path, explicitly call for its removal.
+- Ensure all changes are well-bounded. Unify and split responsibilities so that you can explicitly list the responsibilities of each authority, module, and flow.
