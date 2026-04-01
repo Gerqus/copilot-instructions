@@ -22,6 +22,7 @@ Don't make any code edits now, just review the code and generate suggestions for
 ## Change-planning thoroughness
 
 - When planning, reviewing, or implementing changes, assess not only what should be added or refactored, but also what becomes obsolete, misleading, fragile, or unnecessary under the new design.
+- If a symptom is caused by architectural mismatch, wrong ownership, or broken boundaries/data flow, fix that structure directly instead of patching the symptom in place.
 - Re-check touched areas for architecture, data flow, ownership, and contract changes. Do not preserve inference, synchronization, coupling, fallback, or compatibility logic by default.
 - Treat the seam between old and new code as a high-risk zone. Look specifically for dead paths, misplaced responsibilities, deceptive behavior, and brittle transitions.
 - Prefer coherent replacement and cleanup: if the new design removes the need for a legacy path, explicitly call for its removal.
@@ -48,6 +49,7 @@ Always be conprehensive in your work, don't shy form reiterating. I need this co
 - [ ] Does the code logically follow from the requirements?
 - [ ] Does the code fit bigger picture of whole project nicely?
 - [ ] Is the code well structured, maintainable and modular obeying project architecture requirements?
+- [ ] If the change fixes a symptom, does it also remove the underlying architectural mismatch when boundaries, ownership, or data flow are the true source?
 - [ ] Are there any security issues or vulnerabilities?
 - [ ] Are there performance issues?
 - [ ] Are there any code style violations?

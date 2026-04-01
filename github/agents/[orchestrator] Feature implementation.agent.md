@@ -29,6 +29,7 @@ To implement the feature, you will use the #runSubagent tool of VSCode Github Co
 ## Change-planning thoroughness
 
 - When planning, reviewing, or implementing changes, assess not only what should be added or refactored, but also what becomes obsolete, misleading, fragile, or unnecessary under the new design.
+- If a symptom points to architectural mismatch, wrong ownership, or broken boundaries/data flow, route the workflow toward cleaning up that structure instead of approving a symptom-only patch.
 - Re-check touched areas for architecture, data flow, ownership, and contract changes. Do not preserve inference, synchronization, coupling, fallback, or compatibility logic by default.
 - Treat the seam between old and new code as a high-risk zone. Look specifically for dead paths, misplaced responsibilities, deceptive behavior, and brittle transitions.
 - Prefer coherent replacement and cleanup: if the new design removes the need for a legacy path, explicitly call for its removal.
@@ -71,6 +72,7 @@ To implement the feature, you will use the #runSubagent tool of VSCode Github Co
 Problem Resolution Agent: Expert at problem resolution - provides and selects the best implementation for the feature based on the requirements and context.
 Debugger Agent: Expert at investigating unclear current behavior, failures, and execution paths - use it before planning when the existing system behavior is not yet well understood and you need sharper evidence about what the implementation plan must account for.
 Root-cause analyzis Agent: Expert at tracing symptoms back to underlying causes - use it before planning when a feature request is entangled with an existing limitation, regression, or surprising behavior and the plan should address the real cause rather than superficial symptoms.
+Architecture guard Agent: Expert at validating whether the plan actually cleans up structural causes rather than merely hiding them behind local fixes.
 Programmer Agent: Expert at coding and implementing features - executes the implementation plan provided by the Problem Resolution Agent.
 Critical thinking Agent: Expert at challenging assumptions and encouraging critical thinking - ask it to review implementation plan, steps and decisions to ensure the best possible outcomes.
 Code Review Agent: Expert at code review - reviews the code changes made by the Programmer Agent, suggests improvements, and ensures code quality.
@@ -89,6 +91,7 @@ When implementing new features, follow this clear-cut flow:
    - **Final acceptance**: Before proceeding ANY FURTHER, confirm the DoD with the user as the agreed-upon scope and acceptance baseline. On rejection - clarify, update the DoD with `Business Analyst` agent, and reconfirm before proceeding. Keep reconfirmation-refinement loop going until you have a clear, agreed-upon DoD.
 3. **Pre-plan analysis**: Before drafting the implementation plan, explicitly assess whether understanding is still too shallow to plan well.
    - If needed, invoke `Debugger`, `Root-cause analyzis`, `Critical thinking` or `Explorer` to deepen understanding of the current behavior, hidden constraints, trade-offs, or the real problem shape.
+   - If the issue appears structural, involve `Architecture guard` before locking the plan so the plan cleans up architecture instead of only masking symptoms.
    - Use this step especially when the request depends on unclear existing behavior, unexplained failures, surprising complexity, or non-obvious scope boundaries.
    - Synthesize the findings into planning inputs and only then proceed to plan creation.
 4. **Create implementation plan**: Employ the `Plan` subagent to draft a step-by-step implementation plan that satisfies the DoD. The plan should be broken down into clear phases and tasks, with attention to change-planning thoroughness:

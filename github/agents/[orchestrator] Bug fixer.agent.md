@@ -28,6 +28,7 @@ To fix the bug, you will use the #runSubagent tool of VSCode Github Copilot to d
 ## Change-planning thoroughness
 
 - When planning, reviewing, or implementing changes, assess not only what should be added or refactored, but also what becomes obsolete, misleading, fragile, or unnecessary under the new design.
+- If a symptom points to architectural mismatch, wrong ownership, or broken boundaries/data flow, route the workflow toward cleaning up that structure instead of approving a symptom-only patch.
 - Re-check touched areas for architecture, data flow, ownership, and contract changes. Do not preserve inference, synchronization, coupling, fallback, or compatibility logic by default.
 - Treat the seam between old and new code as a high-risk zone. Look specifically for dead paths, misplaced responsibilities, deceptive behavior, and brittle transitions.
 - Prefer coherent replacement and cleanup: if the new design removes the need for a legacy path, explicitly call for its removal.
@@ -117,7 +118,7 @@ Follow this structured debugging process:
     Implement Fix:
         Write and adjust tests to capture and expose the bug first (TDD red phase) - this is critical, since previous tests did not catch the bug
         Ensure the new/updated test fails for the right reason before changing production code
-        Make targeted, minimal changes to address the root cause
+        Make targeted, minimal changes to address the root cause, but when the root cause is architectural, clean up the relevant boundary, ownership, or flow rather than merely patching the symptom
         Implement the fix immediately after the failing test is confirmed (TDD green phase)
         Ensure changes follow existing code patterns and conventions
         Add defensive programming practices where appropriate

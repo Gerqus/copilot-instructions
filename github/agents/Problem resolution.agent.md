@@ -17,6 +17,7 @@ Don't make any code edits now.
 ## Change-planning thoroughness
 
 - When planning, reviewing, or implementing changes, assess not only what should be added or refactored, but also what becomes obsolete, misleading, fragile, or unnecessary under the new design.
+- If the root cause is architectural, prefer a resolution that cleans up the responsible boundary, ownership, or flow instead of layering a local symptom patch on top.
 - Re-check touched areas for architecture, data flow, ownership, and contract changes. Do not preserve inference, synchronization, coupling, fallback, or compatibility logic by default.
 - Treat the seam between old and new code as a high-risk zone. Look specifically for dead paths, misplaced responsibilities, deceptive behavior, and brittle transitions.
 - Prefer coherent replacement and cleanup: if the new design removes the need for a legacy path, explicitly call for its removal.

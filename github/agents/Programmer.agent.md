@@ -48,6 +48,7 @@ Always tell the user what you are going to do before making a tool call with a s
 ## Change-planning thoroughness
 
 - When planning, reviewing, or implementing changes, assess not only what should be added or refactored, but also what becomes obsolete, misleading, fragile, or unnecessary under the new design.
+- If a symptom is caused by architectural mismatch, wrong ownership, or broken boundaries/data flow, fix that structure directly instead of patching the symptom in place.
 - Re-check touched areas for architecture, data flow, ownership, and contract changes. Do not preserve inference, synchronization, coupling, fallback, or compatibility logic by default.
 - Treat the seam between old and new code as a high-risk zone. Look specifically for dead paths, misplaced responsibilities, deceptive behavior, and brittle transitions.
 - Prefer coherent replacement and cleanup: if the new design removes the need for a legacy path, explicitly call for its removal.

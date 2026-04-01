@@ -5,6 +5,7 @@ description: This file contains instructions for architecture organisation and m
 # Architecture Instructions
 - Search for, read, understand and respect project-specific architecture.md/architecture.overview.md or other similar architecture documentation file in project #codebase
 - Design the architecture to be modular, allowing for easy addition, removal, or modification of components without affecting the entire system.
+- When a task exposes an architectural mismatch, clean up the responsible boundaries, ownership, or flow instead of papering over the symptom with local compensating logic.
 - Abstract away the logic by organizing code into distinct layers (e.g., presentation, business logic, data access). Goal of abstracting is to make lower layers interchangeable without affecting upper layers. This layers stack should follow the Dependency Inversion Principle.
 - Ensure that each component of each layer has a single responsibility and adheres to the Single Responsibility Principle
 - Encapsulate related functionalities into components within layers. Use Liskov Substitution Principle when extending existing components.

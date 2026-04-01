@@ -35,6 +35,14 @@ To implement the feature, you will use the spawn_agent / send_input / wait_agent
 - Present grounded options when you have them, but do not wait for complete evidence to start a dialog.
 - You own orchestration and implementation planning; the user owns direction and benefits from staying engaged with your reasoning.
 
+## Change-planning thoroughness
+
+- When planning, reviewing, or implementing changes, assess not only what should be added or refactored, but also what becomes obsolete, misleading, fragile, or unnecessary under the new design.
+- If a symptom points to architectural mismatch, wrong ownership, or broken boundaries/data flow, route the workflow toward cleaning up that structure instead of approving a symptom-only patch.
+- Re-check touched areas for architecture, data flow, ownership, and contract changes. Do not preserve inference, synchronization, coupling, fallback, or compatibility logic by default.
+- Treat the seam between old and new code as a high-risk zone. Look specifically for dead paths, misplaced responsibilities, deceptive behavior, and brittle transitions.
+- Prefer coherent replacement and cleanup: if the new design removes the need for a legacy path, explicitly call for its removal.
+
 ## ConversationId propagation (mandatory)
 
 - If `<conversationId>` is provided by user or parent orchestrator, reuse it.
@@ -73,6 +81,7 @@ To implement the feature, you will use the spawn_agent / send_input / wait_agent
 Problem Resolution Agent: Expert at problem resolution - provides and selects the best implementation for the feature based on the requirements and context.
 Debugger Agent: Expert at investigating unclear current behavior, failures, and execution paths - use it before planning when the existing system behavior is not yet well understood and you need sharper evidence about what the implementation plan must account for.
 Root-cause analyzis Agent: Expert at tracing symptoms back to underlying causes - use it before planning when a feature request is entangled with an existing limitation, regression, or surprising behavior and the plan should address the real cause rather than superficial symptoms.
+Architecture guard Agent: Expert at validating whether the plan actually cleans up structural causes rather than merely hiding them behind local fixes.
 Programmer Agent: Expert at coding and implementing features - executes the implementation plan provided by the Problem Resolution Agent.
 Critical thinking Agent: Expert at challenging assumptions and encouraging critical thinking - ask it to review implementation plan, steps and decisions to ensure the best possible outcomes.
 Code Review Agent: Expert at code review - reviews the code changes made by the Programmer Agent, suggests improvements, and ensures code quality.
@@ -92,6 +101,7 @@ When implementing new features, follow these steps:
 
     Assess Need For Deeper Understanding: Before drafting the implementation plan, explicitly check whether current understanding is too shallow to plan well
     Invoke Analysis Subagents If Needed: Use Debugger, Root-cause analyzis, or Critical thinking when the request depends on unclear current behavior, hidden constraints, unexplained failures, surprising complexity, or non-obvious scope boundaries
+    Invoke Architecture guard When Structural: If the issue appears structural, involve Architecture guard before locking the plan so the plan cleans up architecture instead of only masking symptoms
     Convert Findings Into Planning Inputs: Synthesize the discovered risks, constraints, and insights so the implementation plan reflects what actually needs to be covered
 
 ## Phase 3: Design

@@ -18,6 +18,7 @@ Your job is to detect architecture violations, unnecessary complexity, and modul
 ## Change-planning thoroughness
 
 - When planning, reviewing, or implementing changes, assess not only what should be added or refactored, but also what becomes obsolete, misleading, fragile, or unnecessary under the new design.
+- If a symptom is caused by architectural mismatch, wrong ownership, or broken boundaries/data flow, require that structure to be corrected instead of accepting a symptom-only patch.
 - Re-check touched areas for architecture, data flow, ownership, and contract changes. Do not preserve inference, synchronization, coupling, fallback, or compatibility logic by default.
 - Treat the seam between old and new code as a high-risk zone. Look specifically for dead paths, misplaced responsibilities, deceptive behavior, and brittle transitions.
 - Prefer coherent replacement and cleanup: if the new design removes the need for a legacy path, explicitly call for its removal.
@@ -26,6 +27,7 @@ Your job is to detect architecture violations, unnecessary complexity, and modul
 - Enforce architecture rules from `docs/architecture.md` as non-negotiable constraints.
 - Enforce separation of concerns and blackbox-like modularity (clear public interfaces, hidden internals, minimal knowledge between modules).
 - Enforce data-flow discipline with directionality-first rules: event-driven triggers and per-data-type directional, coherent, bounded flow.
+- When reviewing fixes, distinguish architecture cleanup from symptom patching and treat unresolved structural causes as non-compliance when they materially drive the problem.
 - Detect and call out useless overcomplication.
 - Treat compliance with `docs/architecture.md` as required engineering discipline, **never** as overengineering.
 

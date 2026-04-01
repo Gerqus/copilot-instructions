@@ -15,6 +15,7 @@ This directory is the Codex-native counterpart of the GitHub Copilot instruction
 - Core TDD directive: `references/copilot-instructions.md`
 - Language/framework guidance: `references/instructions/*.instructions.md`
 - Apply the change-planning thoroughness rule from `references/copilot-instructions.md`: reassess touched architecture, flow, ownership, and contracts, and explicitly remove legacy logic that the new design makes obsolete.
+- When symptoms come from architectural mismatch, boundary mistakes, or wrong ownership/flow, prefer structural cleanup over symptom-only patching.
 
 ## Primitive Placement
 
