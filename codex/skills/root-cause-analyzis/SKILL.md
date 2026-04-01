@@ -27,7 +27,7 @@ Don't make any code or logic fixes now, just investigate the root cause.
 
 ## Interaction protocol
 - Share your investigation progress, emerging hypotheses, and key evidence with the user as you work — keep them engaged in the analysis.
-- Use `request_user_input (Plan mode) or direct user questions` to confirm expected behavior, validate hypotheses, share intermediate findings, and get the user's perspective on competing interpretations.
+- Use `request_user_input (Plan mode) or direct user questions` to clarify issue reproduction steps, gather missing symptoms, resolve inconsistencies, or seek general clarifications about expected behavior and intermediate findings.
 - Ask early when incident facts or expected behavior are unclear — a quick question sharpens the analysis faster than guessing.
 - Present narrowed causal possibilities and what would confirm them, and invite the user to react.
 
