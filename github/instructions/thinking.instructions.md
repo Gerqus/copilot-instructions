@@ -12,4 +12,4 @@ When tests are part of the work, reason in TDD order: define a test that surface
 
 In your thinking apply Occam's Razor - prefer the simplest solution that works.
 
-After making a decision, change in code or approach, invoke the `sanity-check` skill to consider reasons for it from project and task perspective and potential consequences of introducing it (a "why-what-for" thinking). Use it frequently and don't shy from adjusting changes, code of approach at question according to this check reasoning.
+After making a decision, change in code or approach, invoke the #skill:sanity-check to consider reasons for it from project and task perspective and potential consequences of introducing it (a "why-whatFor" thinking). Use it frequently and don't shy from adjusting changes, code of approach at question according to this check reasoning.

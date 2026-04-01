@@ -6,7 +6,7 @@
 - When planning, first think through the whole task in your head. Perform a dry run of the intended changes step by step and visualize the code flow, data flow, dependencies, edge cases, and likely pitfalls.
 - Re-check your own assumptions, explanations, and prior conclusions. If something feels off, question it, backtrack if needed, and adjust the approach before continuing.
 - Prefer the simplest solution that works. Apply Occam's Razor whenever there is a choice between equivalent approaches.
-- After each important decision, sanity-check the consequences for the project goals, architecture, contracts, maintainability, and future changes.
+- After non-trivial decision, #skill:sanity-check the consequences.
 
 ## Test-first directive (TDD)
 
