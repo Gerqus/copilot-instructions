@@ -1,19 +1,19 @@
 ---
-name: planner-github-official
+name: planner-based-off-copilot-official
 description: 'Researches and outlines multi-step plans - adjusted by me'
 argument-hint: 'Task context and desired outcome'
 user-invocable: true
 metadata: {
-  "skill": "planner-github-official",
+  "skill": "planner-based-off-copilot-official",
   "line": "codex",
-  "counterpart": "/home/projekty/copilot-instructions/agents/Planner github official.agent.md",
+  "counterpart": "/home/projekty/copilot-instructions/agents/Planner based off copilot official.agent.md",
   "type": "agent-counterpart"
 }
 ---
 
-# Planner github official (Codex Counterpart)
+# Planner copilot official (Codex Counterpart)
 
-This skill is the Codex-native equivalent of `/home/projekty/copilot-instructions/agents/Planner github official.agent.md`.
+This skill is the Codex-native equivalent of `/home/projekty/copilot-instructions/agents/Planner based off copilot official.agent.md`.
 
 ## Codex Mapping
 - Subagent delegation: `spawn_agent`, `send_input`, `wait_agent`

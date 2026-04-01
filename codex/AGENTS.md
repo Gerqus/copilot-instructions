@@ -70,7 +70,7 @@ Declare tool dependencies in Codex skill frontmatter under `available_tools`.
 - `/home/projekty/copilot-instructions/agents/Debugger.agent.md` -> `codex/skills/debugger/SKILL.md`
 - `/home/projekty/copilot-instructions/agents/Janitor.agent.md` -> `codex/skills/janitor/SKILL.md`
 - `/home/projekty/copilot-instructions/agents/One-question deep analysis.agent.md` -> `codex/skills/one-question-deep-analysis/SKILL.md`
-- `/home/projekty/copilot-instructions/agents/Planner github official.agent.md` -> `codex/skills/planner-github-official/SKILL.md`
+- `/home/projekty/copilot-instructions/agents/Planner based off copilot official.agent.md` -> `codex/skills/planner-based-off-copilot-official/SKILL.md`
 - `/home/projekty/copilot-instructions/agents/Planner.old.md` -> `codex/skills/planner-old/SKILL.md`
 - `/home/projekty/copilot-instructions/agents/Problem resolution.agent.md` -> `codex/skills/problem-resolution/SKILL.md`
 - `/home/projekty/copilot-instructions/agents/Production incident triage.agent.md` -> `codex/skills/production-incident-triage/SKILL.md`

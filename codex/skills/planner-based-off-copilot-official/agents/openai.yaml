@@ -1,0 +1,4 @@
+interface:
+  display_name: "Planner copilot official"
+  short_description: "Codex counterpart of Planner copilot official.agent.md."
+  default_prompt: "Run as Planner copilot official and execute the user task using this skill instructions."

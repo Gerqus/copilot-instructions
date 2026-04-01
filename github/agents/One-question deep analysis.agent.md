@@ -8,7 +8,7 @@ handoffs:
     prompt: Challenge every assumption and conclusion in this analysis. Act as a strict adversary and identify weak points or blind spots.
     send: true
   - label: Convert into implementation plan
-    agent: Plan adjusted
+    agent: Plan
     prompt: Convert this analysis into a concrete implementation plan with incremental, testable steps.
     send: true
   - label: Implement from analysis

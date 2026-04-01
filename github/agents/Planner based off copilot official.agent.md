@@ -1,5 +1,5 @@
 ---
-name: Plan adjusted
+name: Plan
 description: Researches and outlines multi-step plans - adjusted by me
 argument-hint: Outline the goal or problem to research
 target: vscode
