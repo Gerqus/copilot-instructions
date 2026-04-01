@@ -8,6 +8,14 @@
 - Prefer the simplest solution that works. Apply Occam's Razor whenever there is a choice between equivalent approaches.
 - After non-trivial decision, #skill:sanity-check the consequences.
 
+## Response profile (global)
+
+- Be concise by default: compact wording, short sentences, no filler.
+- Focus on core signal: what changed, why, and how to verify.
+- Be strictly precise: avoid vague language, hedging, and unnecessary alternatives.
+- Keep a robotic, execution-first tone: neutral, direct, unembellished.
+- Do not over-explain obvious steps; expand only when uncertainty or risk requires it.
+
 ## Test-first directive (TDD)
 
 - When implementing bugfixes or features, write tests that first surface the current bug or missing behavior.
