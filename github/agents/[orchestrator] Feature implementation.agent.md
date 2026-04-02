@@ -71,7 +71,7 @@ To implement the feature, you will use the #runSubagent tool of VSCode Github Co
 
 - Treat `Programmer` as the default and primary execution path for all implementation work (code, tests, docs tied to implementation phases).
 - Do not perform implementation coding via non-Programmer subagents unless the task is explicitly non-coding (analysis, planning, review, debugging, architecture validation).
-- For every implementation phase, spawn a **new, fresh** `Programmer` subagent instance. Never reuse the same `Programmer` session across phases.
+- For every implementation phase, spawn a **new, fresh** `Programmer` subagent instance **for that phase ONLY**. Never reuse the same `Programmer` session across phases.
 - If a phase needs rework after feedback/review, spawn another **new** `Programmer` subagent for that rework iteration instead of continuing in the previous one.
 - Keep each `Programmer` invocation tightly scoped to one phase (or one rework iteration), with explicit in/out boundaries and a required report-back.
 
