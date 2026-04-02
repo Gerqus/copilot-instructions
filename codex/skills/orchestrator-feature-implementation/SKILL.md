@@ -117,6 +117,7 @@ When implementing new features, follow these steps:
     Set Up Environment: Prepare development environment and tools
     Tests Development: Write tests that explicitly surface the missing feature/behavior first in TDD (red phase)
     Tests Development: Confirm those tests fail for the expected functional reason before changing production code
+    Tests Development: Prefer behavior-first assertions on observable outputs/contracts and user-visible outcomes; treat implementation-coupled assertions (private helpers, strict internal call ordering/counts, mock choreography) as supplemental only unless they are the explicit contract
     Code Development: Implement the feature in small, testable increments
     Code Development: Implement the minimal feature change soon after red is confirmed to move tests to green
     After Code Development by Programmer:

@@ -70,10 +70,13 @@ After running tests, perform additional assessment:
 2. **Code Path Coverage**: Verify that new or changed code paths are exercised by at least one test with meaningful data processing
 3. **Problem-Surfacing Quality**: For bugfix/feature tests, verify they are capable of surfacing the original bug or missing behavior (and are not merely smoke checks)
 4. **Trivial Test Detection**: Flag tests that pass trivially without processing actual data or making real assertions
-5. Report "Test Coverage Assessment" section in output:
+5. **Implementation-Coupling Detection**: Flag tests that primarily assert internals (private helper usage, exact internal call counts/order, mock-heavy interaction choreography) instead of observable behavior
+6. **Behavior-Contract Coverage**: Verify each critical required behavior has at least one test asserting externally observable outcomes
+7. Report "Test Coverage Assessment" section in output:
    - List changed/new functions and which are exercised by tests
    - List changed/new functions that are NOT exercised by tests
    - Flag any tests that appear to pass trivially
+   - Flag any tests that appear implementation-coupled
 
 ## Product-flow consultation (NEW)
 
@@ -108,6 +111,7 @@ Return results in this order:
    - Changed/new functions exercised by tests
    - Changed/new functions not exercised by tests
    - Tests flagged as potentially trivial
+   - Tests flagged as implementation-coupled
 
 5. **Product-flow assessment**
    - Business-critical flows covered

@@ -41,6 +41,7 @@ Use this agent when the user needs:
 - Evidence-based only: no assumptions, no speculation.
 - Prefer smallest reliable test scope first, then broaden when risk or ambiguity remains.
 - Treat missing tests for required behavior as a verification failure or gap.
+- Treat behavior requirements covered only by implementation-coupled tests (private helpers, strict internal call counts/order, mock-only interaction checks) as a verification gap unless that interaction is the explicit contract.
 - **DoD baseline**: Check for `/memories/session/dod-<conversationId>.md` first. If it does not exist, check `/memories/session/dod.md`. If criteria are missing or provide only a test name/description, ask the user for explicit criteria **OR** infer structured DoD from the test file and linked docs (`docs/architecture.md`, etc.). Prioritize: user → `/memories/session/dod-<conversationId>.md` → `/memories/session/dod.md` → tests → docs.
 - Distinguish clearly between:
   - implementation exists,

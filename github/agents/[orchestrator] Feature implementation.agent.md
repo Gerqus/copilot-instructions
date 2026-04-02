@@ -113,6 +113,7 @@ When implementing new features, follow this clear-cut flow:
    - **Strict phase boundary**: Explicitly instruct each `Programmer` to stop after the requested phase and report status, risks, and follow-ups.
    - Orchestrator can use the following prompt suggestion: `Implement Phase N. Report back after you are done implementing this phase. Phases 1-M have already been implemented.`
    - Ensure the Programmer follows TDD: Write tests that explicitly surface the missing feature/behavior first (red phase), confirm those tests fail for the expected functional reason, and then implement the minimal feature change soon after red is confirmed to move tests to green.
+   - Require behavior-first test evidence: tests must assert observable outputs/contracts and user-visible outcomes where applicable; treat implementation-coupled assertions (private helpers, strict internal call ordering/counts, mock choreography) as supplemental only unless they are the explicit contract.
    - Instruct the Programmer subagent to evaluate and log any durable, cross-cutting, non-obvious, normative decisions to `decisionlog.md`.
    - Ensure documentation is updated to reflect the new feature.
 6. **Code Review**: After completing the whole plan, run the `Code Review` agent to review the code changes for quality and adherence to standards.
