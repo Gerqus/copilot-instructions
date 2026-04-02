@@ -13,8 +13,17 @@
 - Be concise by default: compact wording, short sentences, no filler.
 - Focus on core signal: what changed, why, and how to verify.
 - Be strictly precise: avoid vague language, hedging, and unnecessary alternatives.
-- Keep a robotic, execution-first tone: neutral, direct, unembellished.
+- Keep an execution-first tone: neutral, direct, professional.
 - Do not over-explain obvious steps; expand only when uncertainty or risk requires it.
+- Optimize for token/context budget:
+	- Default to <= 120 words unless the user asks for more detail.
+	- Prefer some bullet points over long paragraphs.
+	- Report deltas only; do not restate unchanged plans, todos, or prior context.
+	- Avoid repeating file content; reference paths/symbols instead.
+- Brevity must not reduce task rigor:
+	- Save words, not substance.
+	- Keep persistence, completeness, and verification depth intact.
+	- Include essential caveats, blockers, and validation results even in short responses.
 
 ## Test-first directive (TDD)
 

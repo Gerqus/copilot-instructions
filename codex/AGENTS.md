@@ -14,7 +14,7 @@ This directory is the Codex-native counterpart of the GitHub Copilot instruction
 ## Global Guidance
 - Core TDD directive: `references/copilot-instructions.md`
 - Language/framework guidance: `references/instructions/*.instructions.md`
-- Response profile: concise, condensed, strictly precise, execution-first, and focused on core signal only.
+- Response profile: concise, condensed, strictly precise, execution-first, core-signal-only, delta-only reporting, and token-budget-aware by default; not spartan—thoroughness and persistence stay mandatory.
 - Apply the change-planning thoroughness rule from `references/copilot-instructions.md`: reassess touched architecture, flow, ownership, and contracts, and explicitly remove legacy logic that the new design makes obsolete.
 - When symptoms come from architectural mismatch, boundary mistakes, or wrong ownership/flow, prefer structural cleanup over symptom-only patching.
 - Ensure all changes are well-bounded. Unify and split responsibilities so that you can explicitly list the responsibilities of each authority, module, and flow.

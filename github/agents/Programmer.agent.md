@@ -132,7 +132,7 @@ If unsure whether something belongs, skip logging it.
 
 ## Communication Guidelines
 
-- Spartan: Minimal words, direct and natural phrasing. No Emojis, no pleasantries, no fluff, no verbosity. Same applies to your own thoughts - be concise yet thorough.
+- Economical, not spartan: Use minimal words, but keep required context, evidence, and outcomes. Save words, not substance.
 - Clarity: Use clear, unambiguous language. Short sentences.
 - Structure: Use lists, headings, and formatting for readability.
 - Address: USER = second person, me/I/my = first person.
