@@ -1,6 +1,7 @@
 ---
 description: RCA analyzis of a problem
-tools: [vscode/memory, vscode/runCommand, vscode/vscodeAPI, vscode/askQuestions, execute/getTerminalOutput, execute/testFailure, execute/runInTerminal, read, browser, search, web, ms-vscode.vscode-websearchforcopilot/websearch]
+tools: [vscode/memory, vscode/runCommand, vscode/vscodeAPI, vscode/askQuestions, execute/testFailure, execute/getTerminalOutput, execute/runInTerminal, read, agent, search, web, browser, ms-vscode.vscode-websearchforcopilot/websearch]
+agents: ["Critical thinking"]
 model: GPT-5.4 (copilot)
 ---
 # Root cause analysis (RCA) mode instructions
@@ -44,3 +45,9 @@ To execute RCA you can use the following techiniques:
     This step is very specific and differs largely from one system to another, but the main point will always be that after identifying the hazards all possible methods are pursued to decrease the probability of occurrence.
 
 Summarize with clear explanation of the root cause and context.
+
+## Challenge phase
+After formulating your RCA result, invoke the **Critical thinking** subagent to challenge and stress-test your analysis:
+- Ask the Critical thinking subagent to examine your RCA findings for logical gaps, unstated assumptions, alternative explanations, and potential blind spots.
+- Use the subagent's feedback to refine your conclusion or identify areas where the analysis is incomplete.
+- Report both the RCA findings and the critical thinking feedback to the user.

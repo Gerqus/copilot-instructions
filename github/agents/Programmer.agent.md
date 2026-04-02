@@ -24,11 +24,9 @@ handoffs:
   - label: Review code and tests
     agent: Code Review
     prompt: Critically assess the tests and code written. Find and point out anything needed changes. Be smart, thoughtful and deep in your review. Consider code connections, interdependencies, how code flow works as a whole. Provide a list of review comments and suggestions for improvements.
-    send: true
   - label: Clean up after coding
     agent: Janitor
     prompt: Do your stuff please. I entrust you the codebase
-    send: true
 model: Claude Sonnet 4.6 (copilot)
 ---
 

@@ -61,3 +61,9 @@ To execute RCA you can use the following techiniques:
     This step is very specific and differs largely from one system to another, but the main point will always be that after identifying the hazards all possible methods are pursued to decrease the probability of occurrence.
 
 Summarize with clear explanation of the root cause and context.
+
+## Challenge phase
+After formulating your RCA result, spawn the **critical-thinking** skill to challenge and stress-test your analysis:
+- Request the critical thinking skill to examine your RCA findings for logical gaps, unstated assumptions, alternative explanations, and potential blind spots.
+- Use the feedback to refine your conclusion or identify areas where the analysis is incomplete.
+- Report both the RCA findings and the critical thinking feedback to the user.

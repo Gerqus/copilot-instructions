@@ -10,15 +10,12 @@ handoffs:
   - label: Produce Definition of Done
     agent: Business Analyst
     prompt: Produce a final-goal Definition of Done for this feature by reading only enough of the codebase to understand current app state and UX, then clarifying only the user-visible desired end state, scope boundaries, and acceptance criteria. Do not investigate solutions, implementation steps, technical approaches, root causes, or plans. Use and propagate the same <conversationId> provided by this planner.
-    send: true
   - label: Start Implementation
     agent: '[orchestrator] Feature implementation'
     prompt: 'Orchestrate implementation based on the plan, using and propagating the same <conversationId> from this planner.'
-    send: true
   - label: Open in Editor
     agent: agent
     prompt: '#createFile the plan as is into an untitled file (`untitled:plan-${camelCaseName}.prompt.md` without frontmatter) for further refinement.'
-    send: true
     showContinueOn: false
 model: Claude Opus 4.6 (copilot)
 ---
