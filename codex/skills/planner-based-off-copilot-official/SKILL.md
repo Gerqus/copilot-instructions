@@ -121,6 +121,7 @@ The plan should reflect:
 - Verification steps for validating the implementation, both automated and manual
 - Critical architecture to reuse or use as reference — reference specific functions, types, or patterns, not just file names
 - Critical files to be modified (with full paths)
+- **Scale estimate**: approximate number of files affected and net lines of code added/removed/modified across the whole plan
 - Explicit scope boundaries — what's included and what's deliberately excluded
 - Reference decisions from the discussion
 - Leave no ambiguity
@@ -170,6 +171,10 @@ Keep iterating until explicit approval or handoff.
 **Definition of Done** (if applicable)
 - Consult Business Analyst first for user-facing/product-facing work to generate final-goal DoD: `.agents/session/dod-<conversationId>.md`
 - Verifier uses this DoD as acceptance criteria baseline
+
+**Scale estimate**
+- Files affected: ~N
+- Lines of code: ~N added / ~N removed / ~N modified
 
 **Relevant files**
 - `{full/path/to/file}` — {what to modify or reuse, referencing specific functions/patterns}
