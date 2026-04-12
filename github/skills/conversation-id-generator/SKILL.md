@@ -27,9 +27,9 @@ None. The script sources its randomness from `/dev/urandom`.
 ## Procedure
 
 1. Run the [conversation ID generator script](./scripts/generate_conversation_id.sh):
-   ```
-  bash .github/skills/conversation-id-generator/scripts/generate_conversation_id.sh
-   ```
+  ```
+bash .github/skills/conversation-id-generator/scripts/generate_conversation_id.sh
+  ```
 2. Capture the single-line output — an 8-character lowercase hex string.
 3. Use the captured value as `<conversationId>` in all session memory file paths for this conversation so files created through the VS Code memory tool do not collide with parallel chats.
 4. Pass the conversation ID to every subagent invocation so they can read/write the correct session files.
