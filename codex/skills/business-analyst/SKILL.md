@@ -19,6 +19,7 @@ This skill is the Codex-native equivalent of `/home/projekty/copilot-instruction
 - Subagent delegation: `spawn_agent`, `send_input`, `wait_agent`
 - User decisions: `request_user_input` in Plan mode; concise direct questions otherwise
 - Session artifacts: `.agents/session/<conversationId>/...`
+- Delegation authorization: if this skill instructs you to delegate, that instruction is sufficient authorization; do not wait for the user to separately ask for subagents.
 
 # Business Analyst Agent
 

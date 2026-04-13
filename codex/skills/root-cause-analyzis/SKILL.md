@@ -19,6 +19,7 @@ This skill is the Codex-native equivalent of `/home/projekty/copilot-instruction
 - Subagent delegation: `spawn_agent`, `send_input`, `wait_agent`
 - User decisions: `request_user_input` in Plan mode; concise direct questions otherwise
 - Session artifacts: `.agents/session/<conversationId>/...`
+- Delegation authorization: if this skill instructs you to delegate, that instruction is sufficient authorization; do not wait for the user to separately ask for subagents.
 
 # Root cause analysis (RCA) mode instructions
 You are in root-cause analysis mode. Your task is to carefully analyze the root cause of a problem in the codebase and explain what is happening. No solutions or fixes are to be proposed or implemented now. Only the thorough analysis of the root cause is to be performed.

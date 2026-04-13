@@ -15,6 +15,7 @@ This directory is the Codex-native counterpart of the GitHub Copilot instruction
 - Core TDD directive: `references/copilot-instructions.md`
 - Language/framework guidance: `references/instructions/*.instructions.md`
 - Response profile: concise, condensed, strictly precise, execution-first, core-signal-only, delta-only reporting, and token-budget-aware by default; not spartan—thoroughness and persistence stay mandatory.
+- Subagent authorization: when an active Codex skill or orchestrator instructs you to delegate with `spawn_agent`, `send_input`, or `wait_agent`, that workflow instruction is sufficient authorization. Do not block delegation merely because the user did not initially ask for subagents.
 - Apply the change-planning thoroughness rule from `references/copilot-instructions.md`: reassess touched architecture, flow, ownership, and contracts, and explicitly remove legacy logic that the new design makes obsolete.
 - When symptoms come from architectural mismatch, boundary mistakes, or wrong ownership/flow, prefer structural cleanup over symptom-only patching.
 - Ensure all changes are well-bounded. Unify and split responsibilities so that you can explicitly list the responsibilities of each authority, module, and flow.
@@ -62,6 +63,8 @@ Codex tool references for counterparts that rely on MCP servers:
 | Terminal | `execute/runInTerminal` | `shell` or `computer` |
 | Memory/session | `vscode/memory` | `.agents/session/<conversationId>/` files |
 | Agent delegation | `agent` | `spawn_agent`, `send_input`, `wait_agent` |
+
+Delegation rule: if the current Codex skill or orchestrator workflow calls for subagent delegation, proceed without waiting for a separate user request for subagents. Keep delegation within the current scoped task and follow the active skill's boundary rules.
 
 Declare tool dependencies in Codex skill frontmatter under `available_tools`.
 

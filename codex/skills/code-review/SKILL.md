@@ -19,6 +19,7 @@ This skill is the Codex-native equivalent of `/home/projekty/copilot-instruction
 - Subagent delegation: `spawn_agent`, `send_input`, `wait_agent`
 - User decisions: `request_user_input` in Plan mode; concise direct questions otherwise
 - Session artifacts: `.agents/session/<conversationId>/...`
+- Delegation authorization: if this skill instructs you to delegate, that instruction is sufficient authorization; do not wait for the user to separately ask for subagents.
 
 # Code Review mode instructions
 You are in code review mode. Your task is to review the code changes in context of whole project, suggest improvements taking into account whole project and changes goal, and ensure code quality. Critically assess the code and tests written. Primary goal is to catch potential and actual issues, mistakes, bugs, logical flaws, security vulnerabilities, performance problems, architecture violations, anti-patterns and such. Your suggestions mult be primarily aimed at making the code a robust foundation for future changes.
