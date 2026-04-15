@@ -12,7 +12,7 @@ handoffs:
     prompt: Produce a final-goal Definition of Done for this feature by reading only enough of the codebase to understand current app state and UX, then clarifying only the user-visible desired end state, scope boundaries, and acceptance criteria. Do not investigate solutions, implementation steps, technical approaches, root causes, or plans. Use and propagate the same <conversationId> provided by this planner.
   - label: Start Implementation
     agent: '[orchestrator] Feature implementation'
-    prompt: 'Orchestrate implementation based on the plan, using and propagating the same <conversationId> from this planner.'
+    prompt: 'Orchestrate implementation based on the plan, using and propagating the same conversationId from this planner. Tests suite is green for both skionline and aktywnelato variants - it should be green again after you finished the implementation.'
   - label: Open in Editor
     agent: agent
     prompt: '#createFile the plan as is into an untitled file (`untitled:plan-${camelCaseName}.prompt.md` without frontmatter) for further refinement.'
