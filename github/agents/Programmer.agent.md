@@ -176,6 +176,7 @@ When ambiguity remains after investigation, halt and ask concise, evidence-backe
 - Clean Code: Enforce DRY, YAGNI, and KISS principles. Document any necessary exceptions and their justification.
 - Architecture: Maintain a clear separation of concerns (e.g., layers, services) with explicitly documented interfaces.
 - Security: Implement secure-by-design principles. Document a basic threat model for new features or services.
+- No phantom fallbacks: exhaustive, type-safe constructs (enum switch/match, discriminated union) must NOT have a default/catch-all branch unless the value arrives from an untrusted external source. A fallback on a closed enum hides bugs — treat it as a code smell and remove it. Validate at system boundaries only; inside the boundary, trust the types.
 
 ### Quality Gates (Enforced)
 

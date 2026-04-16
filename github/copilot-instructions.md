@@ -40,3 +40,10 @@
 - Treat the seam between old and new code as a high-risk zone. Look specifically for dead paths, misplaced responsibilities, deceptive behavior, and brittle transitions.
 - Prefer coherent replacement and cleanup: if the new design removes the need for a legacy path, explicitly call for its removal.
 - Ensure all changes are well-bounded. Unify and split responsibilities so that you can explicitly list the responsibilities of each authority, module, and flow.
+
+## Anti-defensive-coding discipline
+
+- Do not add error handling, fallbacks, or guards for scenarios that structurally cannot happen.
+- Exhaustive type-safe constructs (enum switches, discriminated unions, pattern matches) must not have a default/fallback branch unless an external, untrusted source can produce an out-of-range value. A fallback on a closed enum is a lie: it silently swallows bugs instead of surfacing them.
+- Validate only at system boundaries (network input, file I/O, CLI args, external APIs). Inside the boundary, trust the types and contracts that already exist.
+- When you feel the urge to add a safety net "just in case," stop and ask: can this case actually occur given the current types and call sites? If no, delete the urge.
