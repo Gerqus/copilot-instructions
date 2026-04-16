@@ -118,6 +118,7 @@ Once context is clear, draft a comprehensive implementation plan.
 The plan should reflect:
 - Structured concise enough to be scannable and detailed enough for effective execution
 - **Phase-based structure (mandatory)**: Every plan must be organised into phases. **Phase 1 is always a tests-only phase** — write all tests that subsequent phases must satisfy; no production code in Phase 1. Each subsequent phase is a self-contained, independently verifiable implementation unit that makes a defined subset of Phase 1 tests go green. No phase may introduce backward-compatibility shims, obsolescence guards, or fallback paths.
+- **Refactoring gate (mandatory when applicable)**: If discovery identifies prerequisite refactorings (e.g., boundary cleanup, ownership/data-flow correction, API reshaping, dead-path removal), model them as one or more dedicated, self-contained phases immediately after Phase 1 and **before** any feature/fix implementation phase. Each refactoring phase must define explicit scope, target files, and verification criteria.
 - **Behavior-first test design (mandatory)**: Phase 1 tests must validate observable behavior and public contracts (inputs/outputs, state transitions, user-visible outcomes). Avoid coupling tests to internals (private helpers, exact call counts, ordering of internal calls, mock-heavy implementation probing) unless that internal interaction is itself the explicit contract.
 - Step-by-step implementation within each phase with explicit dependencies — mark which steps can run in parallel vs. which block on prior steps
 - Verification steps for validating the implementation, both automated and manual
@@ -157,7 +158,12 @@ Keep iterating until explicit approval or handoff.
 - Red-only gate: commit Phase 1 and confirm every test fails before proceeding.
 - Where to write: `tests/` directory following existing test patterns
 
-**Phase 2 — {Name}** *(depends on Phase 1; self-contained; closes when its target tests go green)*
+**Phase 2 — Refactoring: {Name}** *(only when needed; depends on Phase 1; self-contained; prerequisite cleanup only)*
+1. {Refactoring step — no net feature behavior addition; focuses on structure/ownership/contracts}
+2. {…}
+- Verification: existing tests still fail/pass as expected for current rollout stage; no feature behavior claims in this phase
+
+**Phase {next} — {Name}** *(depends on prior phase; self-contained; closes when its target tests go green)*
 1. {Implementation step — note parallelism ("*parallel with step N*") or dependency ("*depends on step N*") when applicable}
 2. {…}
 - Verification: specified Phase 1 tests pass; no new test files; no backward-compatibility shims or fallback paths introduced

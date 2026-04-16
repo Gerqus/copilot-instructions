@@ -110,12 +110,14 @@ When implementing new features, follow these steps:
     Architectural Design: Plan the overall structure and components. Work based on docs/architecture.md, if exists.
     Interface Design: Define APIs and user interfaces
     Data Model Design: Plan any necessary data structures or databases
+    Refactoring-first phasing: If prerequisite refactorings are identified, place them into dedicated, self-contained phases after tests and before any feature/fix implementation phase
     Review Design: Validate the design sanity and feasibility
     Confirm Direction: When the design presents meaningful scope, product, or rollout trade-offs, ask the user to approve the preferred direction before implementation continues
 
 ## Phase 4: Implementation
 
     Set Up Environment: Prepare development environment and tools
+    Phase order gate: If the approved plan contains prerequisite refactoring phases, execute those phases fully before starting feature/fix implementation phases
     Tests Development: Write tests that explicitly surface the missing feature/behavior first in TDD (red phase)
     Tests Development: Confirm those tests fail for the expected functional reason before changing production code
     Tests Development: Prefer behavior-first assertions on observable outputs/contracts and user-visible outcomes; treat implementation-coupled assertions (private helpers, strict internal call ordering/counts, mock choreography) as supplemental only unless they are the explicit contract
