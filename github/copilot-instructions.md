@@ -41,6 +41,12 @@
 - Prefer coherent replacement and cleanup: if the new design removes the need for a legacy path, explicitly call for its removal.
 - Ensure all changes are well-bounded. Unify and split responsibilities so that you can explicitly list the responsibilities of each authority, module, and flow.
 
+## Family-first design directive
+
+- When virtually sensible, design this as the first member of a family. Even if there is only one element/implementation/path/item/part now, identify likely variation axes and encode cheap extension seams where the next cases would otherwise cause structural rewrite.
+- Avoid speculative abstractions that do not correspond to a named future axis.
+- Do not optimize only for current cardinality. Optimize for adding next elements/implementations/paths/items/parts with the smallest semantic diff.
+
 ## Anti-defensive-coding discipline
 
 - Do not add error handling, fallbacks, or guards for scenarios that structurally cannot happen.
