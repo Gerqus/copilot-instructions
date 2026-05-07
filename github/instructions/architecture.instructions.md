@@ -10,8 +10,8 @@ description: This file contains instructions for architecture organisation and m
 - Ensure that each component of each layer has a single responsibility and adheres to the Single Responsibility Principle
 - Encapsulate related functionalities into components within layers. Use Liskov Substitution Principle when extending existing components.
 - Promote reusability by designing components that can be easily reused across different parts of the application.
-- Use closed layers approach where each layer can only interact with the layer directly below it. This helps to maintain a clear separation of concerns and reduces dependencies between layers.
-- A fall-through interaction is discouraged, where a request can pass through multiple layers. Each layer should be meaningful. If it's not, consider changing problem solution approach.
+- Use a closed layers approach: each layer can interact only with the layer directly below it, and only through that layer's public contract. A higher layer must not skip over the next layer to call deeper infrastructure or data access directly. This keeps boundaries explicit, preserves separation of concerns, and reduces dependency leakage between layers.
+- Feature flows may pass vertically through multiple layers, but only as adjacent layer-to-layer hops. Do not omit an intermediate layer in a feature flow; each layer in the stack should contribute a meaningful responsibility. If an intermediate layer would only pass data through without adding a responsibility, reconsider the layer boundary, the component placement, or the problem solution approach.
 - Define clear interfaces for each module or service to facilitate communication and integration.
 - Treat data flow as event-driven: data movement must start from an explicit event (usually user action; explicit system events are acceptable).
 - For each data type, directionality is the primary rule; then enforce coherence and bounds:
@@ -24,7 +24,7 @@ description: This file contains instructions for architecture organisation and m
   - Domain/Service Layer: Contains domain and core logic.
   - Infrastructure Layer: Handles data storage and manages retrieval.
   - Data Access Layer: Responsible for direct interaction with databases or external data sources.
-- Formulate logic columns across layers for specific features or functionalities. Each column should encapsulate all necessary components from each layer to implement a complete feature. This promotes feature-centric development and easier maintenance. Columns can span through different layers but should remain cohesive and focused on a single feature or functionality.
+- Formulate logic columns across layers for specific features or functionalities. Each column should encapsulate all necessary components from each layer to implement a complete feature. Columns are vertical flows through the closed layer stack: they may span multiple layers, but they must move one layer at a time and must not skip required intermediate layers. This promotes feature-centric development and easier maintenance while preserving closed layer boundaries. Columns should remain cohesive and focused on a single feature or functionality.
 - Regularly review and refactor the architecture to ensure it remains modular, maintainable, and aligned with best practices.
 - When planning or implementing new features or changes, start from the highest layer (Presentation/UI Layer) and work your way down to the lowest layer (Data Access Layer). This top-down approach ensures that user needs and experiences are prioritized throughout the development process.
 - About files structure - each module should be encapsulated with a single system-facing service and the rest hidden inside own sub-folders, e.g.
