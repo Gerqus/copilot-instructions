@@ -1,0 +1,4 @@
+interface:
+  display_name: "Prompt: plan"
+  short_description: "Research, align business decisions with the user, and produce a locked phased implementation plan."
+  default_prompt: "Create a small, precise implementation plan. First collect all discoverable, relevant information; then interact with the user for business decisions. Make sure the plan follows architecture requirements, locks implementation decisions, is split into self-contained phases, stays small and precise, and reuses existing patterns where appropriate."
