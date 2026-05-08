@@ -8,7 +8,7 @@ Strive for understanding the whole context.
 
 When planning your work, perform a dry code modifications in your mind - imagine how you would change the code step by step to achieve the goal. Visualize the code logic flow and data flow and what your changes do with them.
 
-When tests are part of the work, reason in TDD order: define a test that surfaces the bug or missing behavior first, verify that failure reveals in correct place lack of logic that is yet to be implemented, then proceed with the smallest implementation change to move from red to green.
+When tests are part of the work, reason in TDD order: define a behavior-first test that surfaces the bug or missing behavior through observable output, state, public contract, or user-visible result first, verify that failure reveals in correct place lack of logic that is yet to be implemented, then proceed with the smallest implementation change to move from red to green. Do not treat private-helper checks, internal call ordering/counts, or mock choreography as sufficient TDD evidence unless that interaction is the explicit contract.
 
 In your thinking apply Occam's Razor - prefer the simplest solution that works.
 

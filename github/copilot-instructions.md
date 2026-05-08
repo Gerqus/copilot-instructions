@@ -27,8 +27,8 @@
 
 ## Test-first directive (TDD)
 
-- When implementing bugfixes or features, write tests that first surface the current bug or missing behavior.
-- Require tests that verify observable outcomes and user-visible behavior over internal implementation details; treat implementation-detail assertions as supplementary unless they define an explicit contract.
+- When implementing bugfixes or features, write behavior-first tests that first surface the current bug or missing behavior through the public contract, observable output, state change, or user-visible result.
+- Require tests that verify observable outcomes and user-visible behavior over internal implementation details; implementation-detail assertions (private helper calls, exact call order/counts, mock choreography) do not satisfy TDD evidence unless that interaction is the explicit contract.
 - Confirm the test fails for the correct functional reason before changing production code.
 - Implement the minimal code change soon after to move the failing test to passing (red -> green), then refactor safely.
 

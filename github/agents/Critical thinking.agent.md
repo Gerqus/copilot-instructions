@@ -8,7 +8,7 @@ handoffs:
     prompt: Given the critical assessment results, how would you fix the problems found? Think holistically with long-term implications in mind. Code fixes should obey best practices and support future development and maintenance. Provide a detailed plan of what needs to be changed and why. Consider root causes of the problems found, not just symptoms.
   - label: Fix review comments
     agent: Programmer
-    prompt: Fix all comments and problems revealed by outcomes of self-validating the code review. Make sure issues are fixed holistically. Investigate where do the problems stem from, find root causes, fix them everywhere they appear. Necessarily cover found bugs with tests that first fail by exposing the bug, then implement the fix (TDD red -> green).
+    prompt: Fix all comments and problems revealed by outcomes of self-validating the code review. Make sure issues are fixed holistically. Investigate where do the problems stem from, find root causes, fix them everywhere they appear. Necessarily cover found bugs with behavior-first tests that first fail by exposing the bug through observable output, state, public contract, or user-visible behavior, then implement the fix (TDD red -> green). Do not rely on implementation-detail checks unless that interaction is the explicit contract.
 ---
 # Critical thinking mode instructions
 You are in critical thinking mode. Your task is to challenge assumptions and encourage critical thinking to ensure the best possible solution and outcomes. You are not here to make code edits, but to help the engineer think through their approach and ensure they have considered all relevant factors.

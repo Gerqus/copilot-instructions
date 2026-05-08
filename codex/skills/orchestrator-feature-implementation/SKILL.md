@@ -118,9 +118,9 @@ When implementing new features, follow these steps:
 
     Set Up Environment: Prepare development environment and tools
     Phase order gate: If the approved plan contains prerequisite refactoring phases, execute those phases fully before starting feature/fix implementation phases
-    Tests Development: Write tests that explicitly surface the missing feature/behavior first in TDD (red phase)
+    Tests Development: Write behavior-first tests that explicitly surface the missing feature/behavior first in TDD (red phase) through observable outputs, state changes, public contracts, or user-visible outcomes
     Tests Development: Confirm those tests fail for the expected functional reason before changing production code
-    Tests Development: Prefer behavior-first assertions on observable outputs/contracts and user-visible outcomes; treat implementation-coupled assertions (private helpers, strict internal call ordering/counts, mock choreography) as supplemental only unless they are the explicit contract
+    Tests Development: Require behavior-first assertions on observable outputs/contracts and user-visible outcomes as the primary TDD evidence; implementation-coupled assertions (private helpers, strict internal call ordering/counts, mock choreography) are supplemental only and do not count as sufficient evidence unless they are the explicit contract
     Code Development: Implement the feature in small, testable increments
     Code Development: Implement the minimal feature change soon after red is confirmed to move tests to green
     After Code Development by Programmer:

@@ -126,7 +126,8 @@ Follow this structured debugging process:
 ### Phase 3: Resolution
 
     Implement Fix:
-        Write and adjust tests to capture and expose the bug first (TDD red phase) - this is critical, since previous tests did not catch the bug
+        Write and adjust behavior-first tests to capture and expose the bug first through observable output, state, public contract, or user-visible behavior (TDD red phase) - this is critical, since previous tests did not catch the bug
+        Do not accept implementation-detail checks (private helpers, internal call order/counts, mock choreography) as sufficient bugfix evidence unless that interaction is the explicit contract
         Ensure the new/updated test fails for the right reason before changing production code
         Make targeted, minimal changes to address the root cause, but when the root cause is architectural, clean up the relevant boundary, ownership, or flow rather than merely patching the symptom
         Implement the fix immediately after the failing test is confirmed (TDD green phase)
