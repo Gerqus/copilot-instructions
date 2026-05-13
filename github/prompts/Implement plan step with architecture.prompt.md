@@ -1,2 +1,0 @@
-Good. Go on and implement the planned changes.
-Read and understand the #codebase . Read, understand and respect the #file:docs/architecture.md while implementing the changes. If the plan exposes an architectural mismatch, clean up the relevant boundary, ownership, or flow instead of patching the symptom in place. Go slowly, incrementally, step by step, use the #skill:sanity-check before and after each step.

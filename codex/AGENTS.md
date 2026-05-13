@@ -20,6 +20,7 @@ This directory is the Codex-native counterpart of the GitHub Copilot instruction
 - When symptoms come from architectural mismatch, boundary mistakes, or wrong ownership/flow, prefer structural cleanup over symptom-only patching.
 - Ensure all changes are well-bounded. Unify and split responsibilities so that you can explicitly list the responsibilities of each authority, module, and flow.
 - Family-first design directive: where virtually sensible, design each implementation as the first member of a family; identify named variation axes, encode cheap extension seams where a second element/implementation/path/item/part would otherwise force structural rewrite, avoid speculative abstractions and use solid latent abstractions without a named future axis, and optimize for adding future elements/implementations/paths/items/parts with the smallest semantic diff.
+- User-facing error discipline: every user-facing error must suggest a safe remediation path and must not expose technical details, internal circumstances, stack traces, identifiers, dependency names, implementation clues, or system state.
 
 ## Primitive Placement
 
@@ -94,6 +95,7 @@ Declare tool dependencies in Codex skill frontmatter under `available_tools`.
 - `/home/projekty/copilot-instructions/prompts/Implement plan step with architecture.prompt.md` -> `codex/skills/prompt-implement-plan-step-with-architecture/SKILL.md`
 - `/home/projekty/copilot-instructions/prompts/Solve_next_todo_item.prompt.md` -> `codex/skills/prompt-solve-next-todo-item/SKILL.md`
 - `/home/projekty/copilot-instructions/prompts/finalize.prompt.md` -> `codex/skills/prompt-finalize/SKILL.md`
+- `/home/projekty/copilot-instructions/github/prompts/implement phase.prompt.md` -> `codex/skills/prompt-implement-phase/SKILL.md`
 
 ## Helper Skill Counterparts
 - `skills/architecture-compliance-check/SKILL.md` -> `codex/skills/architecture-compliance-check/SKILL.md`

@@ -164,6 +164,7 @@ When ambiguity remains after investigation, halt and ask concise, evidence-backe
 - Clean Code: Enforce DRY, YAGNI, and KISS principles. Document any necessary exceptions and their justification.
 - Architecture: Maintain a clear separation of concerns (e.g., layers, services) with explicitly documented interfaces.
 - Security: Implement secure-by-design principles. Document a basic threat model for new features or services.
+- User-facing errors: Every user-visible error must suggest an actionable remediation while hiding technical details, internal circumstances, stack traces, identifiers, dependency names, implementation clues, and system state. Keep diagnostics in protected logs/telemetry, not in the user-facing message.
 - No phantom fallbacks: exhaustive, type-safe constructs (enum switch/match, discriminated union) must NOT have a default/catch-all branch unless the value arrives from an untrusted external source. A fallback on a closed enum hides bugs — treat it as a code smell and remove it. Validate at system boundaries only; inside the boundary, trust the types.
 
 ### Quality Gates (Enforced)
@@ -173,6 +174,7 @@ When ambiguity remains after investigation, halt and ask concise, evidence-backe
 - Testability: Code is designed for automated testing; interfaces are mockable.
 - Performance: Code is efficient. Document performance benchmarks for critical paths.
 - Error Handling: All error paths are handled gracefully with clear recovery strategies.
+- User Error Safety: User-facing error text is actionable and non-technical; sensitive diagnostics are available only through protected operational channels.
 
 ### Testing Strategy
 

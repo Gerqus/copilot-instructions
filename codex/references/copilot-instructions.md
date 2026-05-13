@@ -53,3 +53,8 @@
 - Exhaustive type-safe constructs (enum switches, discriminated unions, pattern matches) must not have a default/fallback branch unless an external, untrusted source can produce an out-of-range value. A fallback on a closed enum is a lie: it silently swallows bugs instead of surfacing them.
 - Validate only at system boundaries (network input, file I/O, CLI args, external APIs). Inside the boundary, trust the types and contracts that already exist.
 - When you feel the urge to add a safety net "just in case," stop and ask: can this case actually occur given the current types and call sites? If no, delete the urge.
+
+## User-facing error discipline
+
+- Every user-facing error must suggest an actionable remediation; an error without a next step is pointless.
+- User-facing errors must not expose technical details, internal circumstances, stack traces, identifiers, dependency names, implementation clues, or system state. Keep diagnostics in protected logs/telemetry and show users only safe, generic wording plus the remediation path.
